@@ -8,6 +8,7 @@
 #      missing=FALSE,
 #      index=FALSE,
 #      factor.limit=5,
+#      char.values=FALSE,
 #      data.title=NA,
 #      desc=NA,
 #      col.width=NA,
@@ -142,6 +143,19 @@
 #  vtable(CO2)
 #  vtable(CO2,factor.limit=1)
 #  vtable(CO2,factor.limit=0)
+
+## ---- eval=FALSE---------------------------------------------------------
+#  library(vtable)
+#  
+#  data(USJudgeRatings)
+#  USJudgeRatings$Judge <- row.names(USJudgeRatings)
+#  USJudgeRatings$SecondCharacter <- 'Less Interesting'
+#  USJudgeRatings$ThirdCharacter <- 'Less Interesting Still!'
+#  
+#  #Show values for all character variables
+#  vtable(USJudgeRatings,char.values=TRUE)
+#  #Or just for a subset
+#  vtable(USJudgeRatings,char.values=c('Judge','SecondCharacter'))
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  library(vtable)
