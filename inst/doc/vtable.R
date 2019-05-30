@@ -170,11 +170,11 @@
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970.')
+#      desc='Data on the savings ratio 1960â€“1970.')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
 #      desc='omit')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970. omit')
+#      desc='Data on the savings ratio 1960â€“1970. omit')
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  library(vtable)

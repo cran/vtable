@@ -1,11 +1,11 @@
-f5f0faccf0510dd536c96d50d6e95023 *DESCRIPTION
+6ec46b86d7e96e4354adf2718039d4b2 *DESCRIPTION
 cbb523bc6762f47ad41afb015d1dfeec *LICENSE
 1f04d2af14be9786a05218567d9277b1 *NAMESPACE
 deaae6776c9514f49cb694e08422aba8 *R/vtable.R
-91f8107188ec7dbeb79d32d750e3273c *build/vignette.rds
-2a80435e77714147901fce86653ba689 *inst/doc/vtable.R
+e1c2075f805636a6931c9ff8d1408e36 *build/vignette.rds
+65d2dcc74c951d5e5901c78aa7e695ea *inst/doc/vtable.R
 e026ad478bf0b8ebbd2168ff9e677682 *inst/doc/vtable.Rmd
-c21f7908dbe8521db0d6bf4af1d5214a *inst/doc/vtable.html
+747b44708532f6aec014990970b21559 *inst/doc/vtable.html
 76005fc7d13c0dcbb0e226e929e891ff *man/dftoHTML.Rd
 79d76d690a095115ac690dff4faab3cd *man/vtable.Rd
 e026ad478bf0b8ebbd2168ff9e677682 *vignettes/vtable.Rmd
