@@ -170,11 +170,11 @@
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960â€“1970.')
+#      desc='Data on the savings ratio 1960–1970.')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
 #      desc='omit')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960â€“1970. omit')
+#      desc='Data on the savings ratio 1960–1970. omit')
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  library(vtable)
@@ -192,6 +192,29 @@
 #  data(efc)
 #  
 #  vtable(efc,summ=c('mean(x)','countNA(x)'))
+
+## ---- eval=FALSE---------------------------------------------------------
+#  labeltable(var,
+#      ...,
+#      out=NA,
+#      file=NA,
+#      desc=NA)
+
+## ---- eval=FALSE---------------------------------------------------------
+#  #Include a single labelled variable to show how the values of that variable correspond to its value labels.
+#  library(sjlabelled)
+#  data(efc)
+#  labeltable(efc$e15relat)
+#  
+#  #Include more than one variable to show, for each value of the first, what values of the others are present in the data.
+#  data(mtcars)
+#  labeltable(mtcars$cyl,mtcars$carb,mtcars$am)
+
+## ---- eval=FALSE---------------------------------------------------------
+#  library(vtable)
+#  
+#  data(LifeCycleSavings)
+#  vtable(LifeCycleSavings,file='lifecycle_variabledocumentation')
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  library(vtable)
