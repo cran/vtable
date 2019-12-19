@@ -1,4 +1,4 @@
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  vtable(data,
 #      out=NA,
 #      file=NA,
@@ -12,9 +12,10 @@
 #      data.title=NA,
 #      desc=NA,
 #      col.width=NA,
-#      summ=NA)
+#      summ=NA,
+#      lush=FALSE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  #Example 1, using base data LifeCycleSavings
@@ -34,7 +35,7 @@
 #  data(efc)
 #  vtable(efc)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -44,13 +45,13 @@
 #  htmlcode <- vtable(LifeCycleSavings,out='htmlreturn')
 #  vartable <- vtable(LifeCycleSavings,out='return')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings,file='lifecycle_variabledocumentation')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  #Note that LifeCycleSavings has five variables
@@ -66,7 +67,7 @@
 #  labs <- c('numeric aggregate personal savings',NA,NA,NA,NA)
 #  vtable(LifeCycleSavings,labels=labs)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  #Note that LifeCycleSavings has five variables
@@ -82,7 +83,7 @@
 #  labs <- as.matrix(labs)
 #  vtable(LifeCycleSavings,labels=labs)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  #Note that LifeCycleSavings has five variables
@@ -97,14 +98,14 @@
 #  labs <- as.matrix(labs)
 #  vtable(LifeCycleSavings,labels=labs)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,class=FALSE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -122,20 +123,20 @@
 #  data(efc)
 #  vtable(efc)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  LifeCycleSavings$sr[1] <- NA
 #  vtable(LifeCycleSavings,missing=TRUE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings,index=TRUE)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  #CO2 contains factor variables
@@ -144,7 +145,7 @@
 #  vtable(CO2,factor.limit=1)
 #  vtable(CO2,factor.limit=0)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(USJudgeRatings)
@@ -157,26 +158,26 @@
 #  #Or just for a subset
 #  vtable(USJudgeRatings,char.values=c('Judge','SecondCharacter'))
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970.')
+#      desc='Data on the savings ratio 1960â€“1970.')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
 #      desc='omit')
 #  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970. omit')
+#      desc='Data on the savings ratio 1960â€“1970. omit')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  library(sjlabelled)
 #  
@@ -186,21 +187,21 @@
 #  #a little cramped, so let's move that over.
 #  vtable(efc,col.width=c(10,10,40,40))
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  library(sjlabelled)
 #  data(efc)
 #  
 #  vtable(efc,summ=c('mean(x)','countNA(x)'))
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  labeltable(var,
 #      ...,
 #      out=NA,
 #      file=NA,
 #      desc=NA)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  #Include a single labelled variable to show how the values of that variable correspond to its value labels.
 #  library(sjlabelled)
 #  data(efc)
@@ -210,19 +211,19 @@
 #  data(mtcars)
 #  labeltable(mtcars$cyl,mtcars$carb,mtcars$am)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings,file='lifecycle_variabledocumentation')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  dftoHTML(LifeCycleSavings)
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -231,13 +232,13 @@
 #  dftoHTML(LifeCycleSavings,out='viewer')
 #  htmlcode <- dftoHTML(LifeCycleSavings,out='htmlreturn')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  dftoHTML(LifeCycleSavings,file='lifecycledata_htmlversion.html')
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -246,7 +247,7 @@
 #  dftoHTML(LifeCycleSavings,col.width=c(60,10,10,10,10))
 #  
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
