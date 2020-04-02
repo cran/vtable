@@ -6,11 +6,13 @@
 #'
 #' Labels that are not in the data will also be reported in the table.
 #'
-#' @param var A vector. Label table will show, for each of the values of this variable, its label (if labels can be found with sjlabelled::get_labels()), or the values in the ... variables.
+#' @param var A vector. Label table will show, for each of the values of this variable, its label (if labels can be found with \code{sjlabelled::get_labels()}), or the values in the \code{...} variables.
 #' @param ... As described above. If specified, will show the values of these variables, instead of the labels of var, even if labels can be found.
-#' @param out Determines where the completed table is sent. Set to "browser" to open HTML file in browser using browseURL(), "viewer" to open in RStudio viewer using viewer(), if available. Use "htmlreturn" to return the HTML code to R, or "return" to return the completed variable table to R in data frame form. Defaults to "viewer" if RStudio is running and "browser" if it isn't.
-#' @param file Saves the completed variable table file to HTML with this filepath. May be combined with any value of out.
+#' @param out Determines where the completed table is sent. Set to \code{"browser"} to open HTML file in browser using \code{browseURL()}, \code{"viewer"} to open in RStudio viewer using \code{viewer()}, if available. Use \code{"htmlreturn"} to return the HTML code to R, \code{"return"} to return the completed variable table to R in data frame form, or \code{"kable"} to return it in \code{knitr::kable()} form. Additional options include \code{"latex"} for a LaTeX table or \code{"latexpage"} for a full buildable LaTeX page. Defaults to \code{"viewer"} if RStudio is running, \code{"browser"} if it isn't, or \code{"kable"} if it's an RMarkdown document being built with \code{knitr}.
+#' @param file Saves the completed variable table file to HTML with this filepath. May be combined with any value of \code{out}, although note that \code{out = "return"} and \code{out = "kable"} will still save the standard labeltable HTML file as with \code{out = "viewer"} or \code{out = "browser"}..
 #' @param desc Description of variable (or labeling system) to be included with the table.
+#' @param note Table note to go after the last row of the table.
+#' @param anchor Character variable to be used to set an anchor link in HTML tables, or a label tag in LaTeX.
 #' @examples
 #' \dontshow{
 #' #These tests use the out='htmlreturn' option
@@ -58,7 +60,7 @@
 #' }
 #' @export
 
-labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
+labeltable <- function(var,...,out=NA,file=NA,desc=NA,note=NA,anchor=NA) {
   #Just in case, noting that if ...s are labeled,
   #but a package that supports the class isn't loaded it messes things up
   comp.vars <- data.frame(lapply(list(...),function(x) sjlabelled::unlabel(x)))
@@ -71,6 +73,9 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
   if (!is.na(desc) & !is.character(desc)) {
     stop('desc must be a character.')
   }
+  if (!identical(out,NA) & !(out %in% c('viewer', 'browser','return','htmlreturn','kable','latex','latexpage'))) {
+    stop('out must be viewer, browser, return, htmlreturn, kable, latex, or latexpage')
+  }
 
   #Get actual name of variable
   var.name <- deparse(substitute(var))
@@ -80,6 +85,8 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
   if (ncol(comp.vars)==0) {
     #Put in a data frame for working with
     lt <- data.frame(var)
+    #Drop missings
+    lt <- stats::na.omit(lt)
     #Only need one of each value
     lt <- subset(lt,!duplicated(lt))
 
@@ -109,8 +116,13 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
   }
   #comp.var version
   else {
+    # No missing data please!
+    var <- as.character(var)
+    var[is.na(var)] <- 'NA'
+
     #Put in a data frame for working with
     prelt <- data.frame(var,comp.vars)
+
     #Only need one of each value
     prelt <- subset(prelt,!duplicated(prelt))
 
@@ -121,6 +133,55 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
 
     lt <- lt[order(lt$var),]
     names(lt) <- c(var.name,names(prelt)[-1])
+  }
+
+  # Row names have gotten funky
+  row.names(lt) <- 1:nrow(lt)
+
+  ####### LATEX OUTPUT
+  if (!identical(out, NA) & out %in% c('latex','latexpage')) {
+    align <- paste0('l',rep('c',ncol(lt)-1))
+
+    #Table only
+    if (out == 'latex') {
+      return(cat(dftoLaTeX(lt,
+                       file = file,
+                       align = align,
+                       title = 'Label Table',
+                       note = note,
+                       anchor=anchor)))
+    }
+
+    #Now for the full page
+    out.latex <- '\\documentclass{article}\n\\begin{document}\n\nlabeltable \\{vtable\\}\n\n'
+    out.latex <- paste(out.latex,
+                       '\\textbf{\\LARGE ', var.name,'}\n\n')
+
+    #Applying description
+    #Applying description
+    if (!is.na(desc)) {
+      out.latex <- paste(out.latex,desc,'\n\n')
+    }
+    #And bring in the table itself
+    out.latex <- paste(out.latex,dftoLaTeX(lt,
+                                           align = align,
+                                           title = 'Label Table',
+                                           note = note,
+                                           anchor=anchor),'\n\n\\end{document}',sep='')
+
+    ####### APPLICATION OF FILE OPTION
+    if (!is.na(file)) {
+      #If they forgot a file extension, fill it in
+      if (!grepl("\\.tex",file)) {
+        file <- paste(file,'.tex',sep='')
+      }
+
+      filepath <- file.path(file)
+      #Create temporary tex file
+      writeLines(out.latex,filepath)
+    }
+
+    return(cat(out.latex))
   }
 
   ####### CONSTRUCTION OF HTML
@@ -178,7 +239,8 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
   out.html <- paste(out.html,'<h3>Label Table</h3>',sep='')
 
   #And bring in the table itself
-  out.html <- paste(out.html,dftoHTML(lt,out='htmlreturn'),'</body></html>',sep='')
+  out.html <- paste(out.html,dftoHTML(lt, note = note,
+                                      anchor=anchor, out='htmlreturn'),'</body></html>',sep='')
 
   ####### APPLICATION OF FILE OPTION
   if (!is.na(file)) {
@@ -212,7 +274,13 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
 
   #Either print the variable table to the help window
   #or return a variable table to the screen, as desired
-  if (Sys.getenv('RSTUDIO')=='1' & (out == 'viewer' | out == '')) {
+  if (out == 'kable' | (isTRUE(getOption('knitr.in.progress')) & out == '')) {
+    #kable can't handle blank rows. These should not occur in labeltable but just in case
+    lt <- lt[!apply(lt,MARGIN=1,FUN=function(x) !any(!(x==rep('',ncol(lt))))),]
+    #I don't know how this would happen but just in case
+    lt <- lt[!apply(lt,MARGIN=1,FUN=function(x) propNA(x) == 1),]
+    return(knitr::kable(lt))
+  } else if (Sys.getenv('RSTUDIO')=='1' & (out == 'viewer' | out == '')) {
     rstudioapi::viewer(htmlpath)
   } else if (Sys.getenv('RSTUDIO')=='' & out == 'viewer') {
     stop('out = viewer is not a valid option if RStudio is not running.')
@@ -221,9 +289,7 @@ labeltable <- function(var,...,out=NA,file=NA,desc=NA) {
   } else if (out == 'return') {
     return(lt)
   } else if (out == 'htmlreturn') {
-    return(out.html)
-  } else {
-    stop('Unrecognized value of out. Set to \"viewer\", \"browser\", \"return\", \"htmlreturn\", or leave blank.')
+    return(cat(out.html))
   }
 
 }
