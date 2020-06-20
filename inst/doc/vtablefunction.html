@@ -12,10 +12,26 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-06-19" />
 
-<title>vtable: Variable Table</title>
+<title>Variable Table (vtable)</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -301,9 +317,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">vtable: Variable Table</h1>
+<h1 class="title toc-ignore">Variable Table (vtable)</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2020-04-01</h4>
+<h4 class="date">2020-06-19</h4>
 
 
 
@@ -348,38 +364,77 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb2-4"><a href="#cb2-4"></a><span class="kw">data</span>(LifeCycleSavings)</span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="kw">vtable</span>(LifeCycleSavings, <span class="dt">out=</span><span class="st">&#39;kable&#39;</span>)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.22 to 16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -389,170 +444,389 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb3-4"><a href="#cb3-4"></a><span class="co">#Don&#39;t forget the handy shortcut vt()!</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="kw">vt</span>(efc)</span></code></pre></div>
 <table>
+<caption>
+efc
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">c12hour</td>
-<td align="left">numeric</td>
-<td align="left">average number of hours of care per week</td>
-<td align="left">Num: 4 to 168</td>
+<tr>
+<td style="text-align:left;">
+c12hour
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+average number of hours of care per week
+</td>
+<td style="text-align:left;">
+Num: 4 to 168
+</td>
 </tr>
-<tr class="even">
-<td align="left">e15relat</td>
-<td align="left">numeric</td>
-<td align="left">relationship to elder</td>
-<td align="left">‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more</td>
+<tr>
+<td style="text-align:left;">
+e15relat
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+relationship to elder
+</td>
+<td style="text-align:left;">
+‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e16sex</td>
-<td align="left">numeric</td>
-<td align="left">elder’s gender</td>
-<td align="left">‘1: male’ ‘2: female’</td>
+<tr>
+<td style="text-align:left;">
+e16sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s gender
+</td>
+<td style="text-align:left;">
+‘1: male’ ‘2: female’
+</td>
 </tr>
-<tr class="even">
-<td align="left">e17age</td>
-<td align="left">numeric</td>
-<td align="left">elder’ age</td>
-<td align="left">Num: 65 to 103</td>
+<tr>
+<td style="text-align:left;">
+e17age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’ age
+</td>
+<td style="text-align:left;">
+Num: 65 to 103
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e42dep</td>
-<td align="left">numeric</td>
-<td align="left">elder’s dependency</td>
-<td align="left">‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’</td>
+<tr>
+<td style="text-align:left;">
+e42dep
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s dependency
+</td>
+<td style="text-align:left;">
+‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c82cop1</td>
-<td align="left">numeric</td>
-<td align="left">do you feel you cope well as caregiver?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c82cop1
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel you cope well as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c83cop2</td>
-<td align="left">numeric</td>
-<td align="left">do you find caregiving too demanding?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c83cop2
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you find caregiving too demanding?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c84cop3</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your friends?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c84cop3
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your friends?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c85cop4</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving have negative effect on your physical health?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c85cop4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving have negative effect on your physical health?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c86cop5</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your family?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c86cop5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your family?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c87cop6</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause financial difficulties?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c87cop6
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause financial difficulties?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c88cop7</td>
-<td align="left">numeric</td>
-<td align="left">do you feel trapped in your role as caregiver?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c88cop7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel trapped in your role as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c89cop8</td>
-<td align="left">numeric</td>
-<td align="left">do you feel supported by friends/neighbours?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c89cop8
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel supported by friends/neighbours?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c90cop9</td>
-<td align="left">numeric</td>
-<td align="left">do you feel caregiving worthwhile?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c90cop9
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel caregiving worthwhile?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c160age</td>
-<td align="left">numeric</td>
-<td align="left">carer’ age</td>
-<td align="left">Num: 18 to 89</td>
+<tr>
+<td style="text-align:left;">
+c160age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’ age
+</td>
+<td style="text-align:left;">
+Num: 18 to 89
+</td>
 </tr>
-<tr class="even">
-<td align="left">c161sex</td>
-<td align="left">numeric</td>
-<td align="left">carer’s gender</td>
-<td align="left">‘1: Male’ ‘2: Female’</td>
+<tr>
+<td style="text-align:left;">
+c161sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s gender
+</td>
+<td style="text-align:left;">
+‘1: Male’ ‘2: Female’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c172code</td>
-<td align="left">numeric</td>
-<td align="left">carer’s level of education</td>
-<td align="left">‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’</td>
+<tr>
+<td style="text-align:left;">
+c172code
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s level of education
+</td>
+<td style="text-align:left;">
+‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c175empl</td>
-<td align="left">numeric</td>
-<td align="left">are you currently employed?</td>
-<td align="left">‘0: no’ ‘1: yes’</td>
+<tr>
+<td style="text-align:left;">
+c175empl
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+are you currently employed?
+</td>
+<td style="text-align:left;">
+‘0: no’ ‘1: yes’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">barthtot</td>
-<td align="left">numeric</td>
-<td align="left">Total score BARTHEL INDEX</td>
-<td align="left">Num: 0 to 100</td>
+<tr>
+<td style="text-align:left;">
+barthtot
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Total score BARTHEL INDEX
+</td>
+<td style="text-align:left;">
+Num: 0 to 100
+</td>
 </tr>
-<tr class="even">
-<td align="left">neg_c_7</td>
-<td align="left">numeric</td>
-<td align="left">Negative impact with 7 items</td>
-<td align="left">Num: 7 to 28</td>
+<tr>
+<td style="text-align:left;">
+neg_c_7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Negative impact with 7 items
+</td>
+<td style="text-align:left;">
+Num: 7 to 28
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pos_v_4</td>
-<td align="left">numeric</td>
-<td align="left">Positive value with 4 items</td>
-<td align="left">Num: 5 to 16</td>
+<tr>
+<td style="text-align:left;">
+pos_v_4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Positive value with 4 items
+</td>
+<td style="text-align:left;">
+Num: 5 to 16
+</td>
 </tr>
-<tr class="even">
-<td align="left">quol_5</td>
-<td align="left">numeric</td>
-<td align="left">Quality of life 5 items</td>
-<td align="left">Num: 0 to 25</td>
+<tr>
+<td style="text-align:left;">
+quol_5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Quality of life 5 items
+</td>
+<td style="text-align:left;">
+Num: 0 to 25
+</td>
 </tr>
-<tr class="odd">
-<td align="left">resttotn</td>
-<td align="left">numeric</td>
-<td align="left">Job restrictions</td>
-<td align="left">Num: 0 to 4</td>
+<tr>
+<td style="text-align:left;">
+resttotn
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Job restrictions
+</td>
+<td style="text-align:left;">
+Num: 0 to 4
+</td>
 </tr>
-<tr class="even">
-<td align="left">tot_sc_e</td>
-<td align="left">numeric</td>
-<td align="left">Services for elderly</td>
-<td align="left">Num: 0 to 9</td>
+<tr>
+<td style="text-align:left;">
+tot_sc_e
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Services for elderly
+</td>
+<td style="text-align:left;">
+Num: 0 to 9
+</td>
 </tr>
-<tr class="odd">
-<td align="left">n4pstu</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’</td>
+<tr>
+<td style="text-align:left;">
+n4pstu
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’
+</td>
 </tr>
-<tr class="even">
-<td align="left">nur_pst</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’</td>
+<tr>
+<td style="text-align:left;">
+nur_pst
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’
+</td>
 </tr>
 </tbody>
 </table>
@@ -632,97 +906,196 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb6-8"><a href="#cb6-8"></a>    <span class="st">&#39;numeric % growth rate of dpi&#39;</span>)</span>
 <span id="cb6-9"><a href="#cb6-9"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population under 15</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population over 75</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">numeric real per-capita disposable income</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric real per-capita disposable income
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">numeric % growth rate of dpi</td>
-<td align="left">Num: 0.22 to 16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % growth rate of dpi
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>labs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="ot">NA</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 0.22 to 16.71</td>
-</tr>
-<tr class="even">
-<td align="left">### `lab</td>
-<td align="left">els` as a</td>
-<td align="left">two-column data set</td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="labels-as-a-two-column-data-set" class="section level3">
+<h3><code>labels</code> as a two-column data set</h3>
 <p><code>labels</code> can be set to a two-column data set (any type will do) where the first column has the variable names, and the second column has the labels. The column names don’t matter.</p>
 <p>This approach does <strong>not</strong> require that every variable name in <code>data</code> has a matching label.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
@@ -735,44 +1108,95 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb8-8"><a href="#cb8-8"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>))</span>
 <span id="cb8-9"><a href="#cb8-9"></a><span class="kw">vt</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population under 15</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population over 75</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 0.22 to 16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -790,44 +1214,95 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb9-7"><a href="#cb9-7"></a>    <span class="dt">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
 <span id="cb9-8"><a href="#cb9-8"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population under 15</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">numeric % of population over 75</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">NA</td>
-<td align="left">Num: 0.22 to 16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -844,69 +1319,135 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">data</span>(LifeCycleSavings)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">values=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">vtable</span>(LifeCycleSavings)</span></code></pre></div>
 <table>
+<caption>
+LifeCycleSavings
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">sr</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.6 to 21.1</td>
+<tr>
+<td style="text-align:left;">
+sr
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.6 to 21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">pop15</td>
-<td align="left">numeric</td>
-<td align="left">Num: 21.44 to 47.64</td>
+<tr>
+<td style="text-align:left;">
+pop15
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 21.44 to 47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pop75</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.56 to 4.7</td>
+<tr>
+<td style="text-align:left;">
+pop75
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.56 to 4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">numeric</td>
-<td align="left">Num: 88.94 to 4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 88.94 to 4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">numeric</td>
-<td align="left">Num: 0.22 to 16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 0.22 to 16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -914,38 +1455,77 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb12-2"><a href="#cb12-2"></a><span class="kw">data</span>(CO2)</span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="kw">vtable</span>(CO2)</span></code></pre></div>
 <table>
+<caption>
+CO2
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Plant</td>
-<td align="left">ordered</td>
-<td align="left">‘Qn1’ ‘Qn2’ ‘Qn3’ ‘Qc1’ ‘Qc2’ and more</td>
+<tr>
+<td style="text-align:left;">
+Plant
+</td>
+<td style="text-align:left;">
+ordered
+</td>
+<td style="text-align:left;">
+‘Qn1’ ‘Qn2’ ‘Qn3’ ‘Qc1’ ‘Qc2’ and more
+</td>
 </tr>
-<tr class="even">
-<td align="left">Type</td>
-<td align="left">factor</td>
-<td align="left">‘Quebec’ ‘Mississippi’</td>
+<tr>
+<td style="text-align:left;">
+Type
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+‘Quebec’ ‘Mississippi’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Treatment</td>
-<td align="left">factor</td>
-<td align="left">‘nonchilled’ ‘chilled’</td>
+<tr>
+<td style="text-align:left;">
+Treatment
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+‘nonchilled’ ‘chilled’
+</td>
 </tr>
-<tr class="even">
-<td align="left">conc</td>
-<td align="left">numeric</td>
-<td align="left">Num: 95 to 1000</td>
+<tr>
+<td style="text-align:left;">
+conc
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 95 to 1000
+</td>
 </tr>
-<tr class="odd">
-<td align="left">uptake</td>
-<td align="left">numeric</td>
-<td align="left">Num: 7.7 to 45.5</td>
+<tr>
+<td style="text-align:left;">
+uptake
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Num: 7.7 to 45.5
+</td>
 </tr>
 </tbody>
 </table>
@@ -956,170 +1536,389 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb13-5"><a href="#cb13-5"></a><span class="kw">data</span>(efc)</span>
 <span id="cb13-6"><a href="#cb13-6"></a><span class="kw">vtable</span>(efc)</span></code></pre></div>
 <table>
+<caption>
+efc
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">c12hour</td>
-<td align="left">numeric</td>
-<td align="left">average number of hours of care per week</td>
-<td align="left">Num: 4 to 168</td>
+<tr>
+<td style="text-align:left;">
+c12hour
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+average number of hours of care per week
+</td>
+<td style="text-align:left;">
+Num: 4 to 168
+</td>
 </tr>
-<tr class="even">
-<td align="left">e15relat</td>
-<td align="left">numeric</td>
-<td align="left">relationship to elder</td>
-<td align="left">‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more</td>
+<tr>
+<td style="text-align:left;">
+e15relat
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+relationship to elder
+</td>
+<td style="text-align:left;">
+‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e16sex</td>
-<td align="left">numeric</td>
-<td align="left">elder’s gender</td>
-<td align="left">‘1: male’ ‘2: female’</td>
+<tr>
+<td style="text-align:left;">
+e16sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s gender
+</td>
+<td style="text-align:left;">
+‘1: male’ ‘2: female’
+</td>
 </tr>
-<tr class="even">
-<td align="left">e17age</td>
-<td align="left">numeric</td>
-<td align="left">elder’ age</td>
-<td align="left">Num: 65 to 103</td>
+<tr>
+<td style="text-align:left;">
+e17age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’ age
+</td>
+<td style="text-align:left;">
+Num: 65 to 103
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e42dep</td>
-<td align="left">numeric</td>
-<td align="left">elder’s dependency</td>
-<td align="left">‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’</td>
+<tr>
+<td style="text-align:left;">
+e42dep
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s dependency
+</td>
+<td style="text-align:left;">
+‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c82cop1</td>
-<td align="left">numeric</td>
-<td align="left">do you feel you cope well as caregiver?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c82cop1
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel you cope well as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c83cop2</td>
-<td align="left">numeric</td>
-<td align="left">do you find caregiving too demanding?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c83cop2
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you find caregiving too demanding?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c84cop3</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your friends?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c84cop3
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your friends?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c85cop4</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving have negative effect on your physical health?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c85cop4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving have negative effect on your physical health?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c86cop5</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your family?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c86cop5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your family?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c87cop6</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause financial difficulties?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c87cop6
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause financial difficulties?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c88cop7</td>
-<td align="left">numeric</td>
-<td align="left">do you feel trapped in your role as caregiver?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
+<tr>
+<td style="text-align:left;">
+c88cop7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel trapped in your role as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c89cop8</td>
-<td align="left">numeric</td>
-<td align="left">do you feel supported by friends/neighbours?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c89cop8
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel supported by friends/neighbours?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c90cop9</td>
-<td align="left">numeric</td>
-<td align="left">do you feel caregiving worthwhile?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
+<tr>
+<td style="text-align:left;">
+c90cop9
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel caregiving worthwhile?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c160age</td>
-<td align="left">numeric</td>
-<td align="left">carer’ age</td>
-<td align="left">Num: 18 to 89</td>
+<tr>
+<td style="text-align:left;">
+c160age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’ age
+</td>
+<td style="text-align:left;">
+Num: 18 to 89
+</td>
 </tr>
-<tr class="even">
-<td align="left">c161sex</td>
-<td align="left">numeric</td>
-<td align="left">carer’s gender</td>
-<td align="left">‘1: Male’ ‘2: Female’</td>
+<tr>
+<td style="text-align:left;">
+c161sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s gender
+</td>
+<td style="text-align:left;">
+‘1: Male’ ‘2: Female’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c172code</td>
-<td align="left">numeric</td>
-<td align="left">carer’s level of education</td>
-<td align="left">‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’</td>
+<tr>
+<td style="text-align:left;">
+c172code
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s level of education
+</td>
+<td style="text-align:left;">
+‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’
+</td>
 </tr>
-<tr class="even">
-<td align="left">c175empl</td>
-<td align="left">numeric</td>
-<td align="left">are you currently employed?</td>
-<td align="left">‘0: no’ ‘1: yes’</td>
+<tr>
+<td style="text-align:left;">
+c175empl
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+are you currently employed?
+</td>
+<td style="text-align:left;">
+‘0: no’ ‘1: yes’
+</td>
 </tr>
-<tr class="odd">
-<td align="left">barthtot</td>
-<td align="left">numeric</td>
-<td align="left">Total score BARTHEL INDEX</td>
-<td align="left">Num: 0 to 100</td>
+<tr>
+<td style="text-align:left;">
+barthtot
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Total score BARTHEL INDEX
+</td>
+<td style="text-align:left;">
+Num: 0 to 100
+</td>
 </tr>
-<tr class="even">
-<td align="left">neg_c_7</td>
-<td align="left">numeric</td>
-<td align="left">Negative impact with 7 items</td>
-<td align="left">Num: 7 to 28</td>
+<tr>
+<td style="text-align:left;">
+neg_c_7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Negative impact with 7 items
+</td>
+<td style="text-align:left;">
+Num: 7 to 28
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pos_v_4</td>
-<td align="left">numeric</td>
-<td align="left">Positive value with 4 items</td>
-<td align="left">Num: 5 to 16</td>
+<tr>
+<td style="text-align:left;">
+pos_v_4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Positive value with 4 items
+</td>
+<td style="text-align:left;">
+Num: 5 to 16
+</td>
 </tr>
-<tr class="even">
-<td align="left">quol_5</td>
-<td align="left">numeric</td>
-<td align="left">Quality of life 5 items</td>
-<td align="left">Num: 0 to 25</td>
+<tr>
+<td style="text-align:left;">
+quol_5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Quality of life 5 items
+</td>
+<td style="text-align:left;">
+Num: 0 to 25
+</td>
 </tr>
-<tr class="odd">
-<td align="left">resttotn</td>
-<td align="left">numeric</td>
-<td align="left">Job restrictions</td>
-<td align="left">Num: 0 to 4</td>
+<tr>
+<td style="text-align:left;">
+resttotn
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Job restrictions
+</td>
+<td style="text-align:left;">
+Num: 0 to 4
+</td>
 </tr>
-<tr class="even">
-<td align="left">tot_sc_e</td>
-<td align="left">numeric</td>
-<td align="left">Services for elderly</td>
-<td align="left">Num: 0 to 9</td>
+<tr>
+<td style="text-align:left;">
+tot_sc_e
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Services for elderly
+</td>
+<td style="text-align:left;">
+Num: 0 to 9
+</td>
 </tr>
-<tr class="odd">
-<td align="left">n4pstu</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’</td>
+<tr>
+<td style="text-align:left;">
+n4pstu
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’
+</td>
 </tr>
-<tr class="even">
-<td align="left">nur_pst</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’</td>
+<tr>
+<td style="text-align:left;">
+nur_pst
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’
+</td>
 </tr>
 </tbody>
 </table>
@@ -1156,7 +1955,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p><code>desc</code> will include a description of the data set in the variable documentation file. This will by default include information on the number of observations and the number of columns. To remove this, set <code>desc=&#39;omit&#39;</code>, or include any description and then include ‘omit’ as the last four characters.</p>
 <p><code>note</code> will add a table note in the last row.</p>
 <p><code>anchor</code> will add an anchor ID (<code>&lt;a name =</code> in HTML or <code>\label{}</code> in LaTeX) to allow other parts of your document to link to it, if you are including your <code>vtable</code> in a larger document.</p>
-<p><code>data.title</code> and <code>desc</code> will only show up in full-page <code>vtable</code>s. That is, you won’t get them with <code>out = &#39;kable&#39;</code>, <code>out = &#39;return&#39;</code>, or <code>out = &#39;latex&#39;</code> (although <code>out = &#39;latexpage&#39;</code> works). <code>note</code> and <code>anchor</code> will only show up in formats that support multi-column cells and anchoring, so they won’t work with <code>out = &#39;kable&#39;</code> or <code>out = &#39;return&#39;</code>.</p>
+<p><code>data.title</code> and <code>desc</code> will only show up in full-page <code>vtable</code>s. That is, you won’t get them with <code>out = &#39;return&#39;</code>, or <code>out = &#39;latex&#39;</code> (although <code>out = &#39;latexpage&#39;</code> works). <code>note</code> and <code>anchor</code> will only show up in formats that support multi-column cells and anchoring, so they won’t work with <code>out = &#39;return&#39;</code>.</p>
+<p><code>out = &#39;kable&#39;</code> is a half-exception in that it will use <code>data.title</code> as the caption for the <code>kable</code>, and will use the <code>note</code> as a footnote, but won’t use <code>desc</code> or <code>anchor</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">library</span>(vtable)</span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="kw">data</span>(LifeCycleSavings)</span>
@@ -1205,197 +2005,470 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb19-3"><a href="#cb19-3"></a></span>
 <span id="cb19-4"><a href="#cb19-4"></a><span class="kw">vtable</span>(efc,<span class="dt">summ=</span><span class="kw">c</span>(<span class="st">&#39;mean(x)&#39;</span>,<span class="st">&#39;countNA(x)&#39;</span>))</span></code></pre></div>
 <table>
+<caption>
+efc
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Class</th>
-<th align="left">Label</th>
-<th align="left">Values</th>
-<th align="left">Summary</th>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:left;">
+Values
+</th>
+<th style="text-align:left;">
+Summary
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">c12hour</td>
-<td align="left">numeric</td>
-<td align="left">average number of hours of care per week</td>
-<td align="left">Num: 4 to 168</td>
-<td align="left">countNA: 6<br>mean: 42.399</td>
+<tr>
+<td style="text-align:left;">
+c12hour
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+average number of hours of care per week
+</td>
+<td style="text-align:left;">
+Num: 4 to 168
+</td>
+<td style="text-align:left;">
+countNA: 6&lt;br&gt;mean: 42.399
+</td>
 </tr>
-<tr class="even">
-<td align="left">e15relat</td>
-<td align="left">numeric</td>
-<td align="left">relationship to elder</td>
-<td align="left">‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+e15relat
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+relationship to elder
+</td>
+<td style="text-align:left;">
+‘1: spouse/partner’ ‘2: child’ ‘3: sibling’ ‘4: daughter or son -in-law’ ‘5: ancle/aunt’ and more
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e16sex</td>
-<td align="left">numeric</td>
-<td align="left">elder’s gender</td>
-<td align="left">‘1: male’ ‘2: female’</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+e16sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s gender
+</td>
+<td style="text-align:left;">
+‘1: male’ ‘2: female’
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">e17age</td>
-<td align="left">numeric</td>
-<td align="left">elder’ age</td>
-<td align="left">Num: 65 to 103</td>
-<td align="left">countNA: 17<br>mean: 79.121</td>
+<tr>
+<td style="text-align:left;">
+e17age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’ age
+</td>
+<td style="text-align:left;">
+Num: 65 to 103
+</td>
+<td style="text-align:left;">
+countNA: 17&lt;br&gt;mean: 79.121
+</td>
 </tr>
-<tr class="odd">
-<td align="left">e42dep</td>
-<td align="left">numeric</td>
-<td align="left">elder’s dependency</td>
-<td align="left">‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+e42dep
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+elder’s dependency
+</td>
+<td style="text-align:left;">
+‘1: independent’ ‘2: slightly dependent’ ‘3: moderately dependent’ ‘4: severely dependent’
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c82cop1</td>
-<td align="left">numeric</td>
-<td align="left">do you feel you cope well as caregiver?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+c82cop1
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel you cope well as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c83cop2</td>
-<td align="left">numeric</td>
-<td align="left">do you find caregiving too demanding?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 6<br></td>
+<tr>
+<td style="text-align:left;">
+c83cop2
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you find caregiving too demanding?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 6&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c84cop3</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your friends?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 6<br></td>
+<tr>
+<td style="text-align:left;">
+c84cop3
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your friends?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 6&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c85cop4</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving have negative effect on your physical health?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 10<br></td>
+<tr>
+<td style="text-align:left;">
+c85cop4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving have negative effect on your physical health?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 10&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c86cop5</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause difficulties in your relationship with your family?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 6<br></td>
+<tr>
+<td style="text-align:left;">
+c86cop5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause difficulties in your relationship with your family?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 6&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c87cop6</td>
-<td align="left">numeric</td>
-<td align="left">does caregiving cause financial difficulties?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 8<br></td>
+<tr>
+<td style="text-align:left;">
+c87cop6
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+does caregiving cause financial difficulties?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 8&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c88cop7</td>
-<td align="left">numeric</td>
-<td align="left">do you feel trapped in your role as caregiver?</td>
-<td align="left">‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’</td>
-<td align="left">countNA: 8<br></td>
+<tr>
+<td style="text-align:left;">
+c88cop7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel trapped in your role as caregiver?
+</td>
+<td style="text-align:left;">
+‘1: Never’ ‘2: Sometimes’ ‘3: Often’ ‘4: Always’
+</td>
+<td style="text-align:left;">
+countNA: 8&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c89cop8</td>
-<td align="left">numeric</td>
-<td align="left">do you feel supported by friends/neighbours?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+c89cop8
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel supported by friends/neighbours?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c90cop9</td>
-<td align="left">numeric</td>
-<td align="left">do you feel caregiving worthwhile?</td>
-<td align="left">‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’</td>
-<td align="left">countNA: 20<br></td>
+<tr>
+<td style="text-align:left;">
+c90cop9
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+do you feel caregiving worthwhile?
+</td>
+<td style="text-align:left;">
+‘1: never’ ‘2: sometimes’ ‘3: often’ ‘4: always’
+</td>
+<td style="text-align:left;">
+countNA: 20&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c160age</td>
-<td align="left">numeric</td>
-<td align="left">carer’ age</td>
-<td align="left">Num: 18 to 89</td>
-<td align="left">countNA: 7<br>mean: 53.463</td>
+<tr>
+<td style="text-align:left;">
+c160age
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’ age
+</td>
+<td style="text-align:left;">
+Num: 18 to 89
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;mean: 53.463
+</td>
 </tr>
-<tr class="even">
-<td align="left">c161sex</td>
-<td align="left">numeric</td>
-<td align="left">carer’s gender</td>
-<td align="left">‘1: Male’ ‘2: Female’</td>
-<td align="left">countNA: 7<br></td>
+<tr>
+<td style="text-align:left;">
+c161sex
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s gender
+</td>
+<td style="text-align:left;">
+‘1: Male’ ‘2: Female’
+</td>
+<td style="text-align:left;">
+countNA: 7&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">c172code</td>
-<td align="left">numeric</td>
-<td align="left">carer’s level of education</td>
-<td align="left">‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’</td>
-<td align="left">countNA: 66<br></td>
+<tr>
+<td style="text-align:left;">
+c172code
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+carer’s level of education
+</td>
+<td style="text-align:left;">
+‘1: low level of education’ ‘2: intermediate level of education’ ‘3: high level of education’
+</td>
+<td style="text-align:left;">
+countNA: 66&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">c175empl</td>
-<td align="left">numeric</td>
-<td align="left">are you currently employed?</td>
-<td align="left">‘0: no’ ‘1: yes’</td>
-<td align="left">countNA: 6<br></td>
+<tr>
+<td style="text-align:left;">
+c175empl
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+are you currently employed?
+</td>
+<td style="text-align:left;">
+‘0: no’ ‘1: yes’
+</td>
+<td style="text-align:left;">
+countNA: 6&lt;br&gt;
+</td>
 </tr>
-<tr class="odd">
-<td align="left">barthtot</td>
-<td align="left">numeric</td>
-<td align="left">Total score BARTHEL INDEX</td>
-<td align="left">Num: 0 to 100</td>
-<td align="left">countNA: 25<br>mean: 64.547</td>
+<tr>
+<td style="text-align:left;">
+barthtot
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Total score BARTHEL INDEX
+</td>
+<td style="text-align:left;">
+Num: 0 to 100
+</td>
+<td style="text-align:left;">
+countNA: 25&lt;br&gt;mean: 64.547
+</td>
 </tr>
-<tr class="even">
-<td align="left">neg_c_7</td>
-<td align="left">numeric</td>
-<td align="left">Negative impact with 7 items</td>
-<td align="left">Num: 7 to 28</td>
-<td align="left">countNA: 16<br>mean: 11.85</td>
+<tr>
+<td style="text-align:left;">
+neg_c_7
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Negative impact with 7 items
+</td>
+<td style="text-align:left;">
+Num: 7 to 28
+</td>
+<td style="text-align:left;">
+countNA: 16&lt;br&gt;mean: 11.85
+</td>
 </tr>
-<tr class="odd">
-<td align="left">pos_v_4</td>
-<td align="left">numeric</td>
-<td align="left">Positive value with 4 items</td>
-<td align="left">Num: 5 to 16</td>
-<td align="left">countNA: 27<br>mean: 12.477</td>
+<tr>
+<td style="text-align:left;">
+pos_v_4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Positive value with 4 items
+</td>
+<td style="text-align:left;">
+Num: 5 to 16
+</td>
+<td style="text-align:left;">
+countNA: 27&lt;br&gt;mean: 12.477
+</td>
 </tr>
-<tr class="even">
-<td align="left">quol_5</td>
-<td align="left">numeric</td>
-<td align="left">Quality of life 5 items</td>
-<td align="left">Num: 0 to 25</td>
-<td align="left">countNA: 11<br>mean: 14.369</td>
+<tr>
+<td style="text-align:left;">
+quol_5
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Quality of life 5 items
+</td>
+<td style="text-align:left;">
+Num: 0 to 25
+</td>
+<td style="text-align:left;">
+countNA: 11&lt;br&gt;mean: 14.369
+</td>
 </tr>
-<tr class="odd">
-<td align="left">resttotn</td>
-<td align="left">numeric</td>
-<td align="left">Job restrictions</td>
-<td align="left">Num: 0 to 4</td>
-<td align="left">countNA: 0<br>mean: 0.329</td>
+<tr>
+<td style="text-align:left;">
+resttotn
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Job restrictions
+</td>
+<td style="text-align:left;">
+Num: 0 to 4
+</td>
+<td style="text-align:left;">
+countNA: 0&lt;br&gt;mean: 0.329
+</td>
 </tr>
-<tr class="even">
-<td align="left">tot_sc_e</td>
-<td align="left">numeric</td>
-<td align="left">Services for elderly</td>
-<td align="left">Num: 0 to 9</td>
-<td align="left">countNA: 0<br>mean: 1.014</td>
+<tr>
+<td style="text-align:left;">
+tot_sc_e
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Services for elderly
+</td>
+<td style="text-align:left;">
+Num: 0 to 9
+</td>
+<td style="text-align:left;">
+countNA: 0&lt;br&gt;mean: 1.014
+</td>
 </tr>
-<tr class="odd">
-<td align="left">n4pstu</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’</td>
-<td align="left">countNA: 9<br></td>
+<tr>
+<td style="text-align:left;">
+n4pstu
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘0: No Care Level’ ‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3’ ‘4: Care Level 3+’
+</td>
+<td style="text-align:left;">
+countNA: 9&lt;br&gt;
+</td>
 </tr>
-<tr class="even">
-<td align="left">nur_pst</td>
-<td align="left">numeric</td>
-<td align="left">Care level</td>
-<td align="left">‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’</td>
-<td align="left">countNA: 419<br></td>
+<tr>
+<td style="text-align:left;">
+nur_pst
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+Care level
+</td>
+<td style="text-align:left;">
+‘1: Care Level 1’ ‘2: Care Level 2’ ‘3: Care Level 3/3+’
+</td>
+<td style="text-align:left;">
+countNA: 419&lt;br&gt;
+</td>
 </tr>
 </tbody>
 </table>

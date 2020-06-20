@@ -19,6 +19,7 @@ st(iris)
 #           factor.counts=TRUE,
 #           factor.numeric=FALSE,
 #           logical.numeric=FALSE,
+#           logical.labels=c('No','Yes'),
 #           labels=NA,
 #           title='Summary Statistics',
 #           note = NA,
@@ -26,6 +27,7 @@ st(iris)
 #           col.width=NA,
 #           col.align=NA,
 #           align=NA,
+#           simple.kable=FALSE,
 #           opts=list())
 
 ## ---- eval = FALSE------------------------------------------------------------

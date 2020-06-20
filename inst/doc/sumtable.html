@@ -12,10 +12,35 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-06-19" />
 
 <title>sumtable: Summary Statistics</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -303,7 +328,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">sumtable: Summary Statistics</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2020-04-01</h4>
+<h4 class="date">2020-06-19</h4>
 
 
 
@@ -319,98 +344,224 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(vtable)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">st</span>(iris)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">0.828</td>
-<td align="left">4.3</td>
-<td align="left">5.1</td>
-<td align="left">6.4</td>
-<td align="left">7.9</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+0.828
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.4
+</td>
+<td style="text-align:left;">
+7.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">0.436</td>
-<td align="left">2</td>
-<td align="left">2.8</td>
-<td align="left">3.3</td>
-<td align="left">4.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+0.436
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+3.3
+</td>
+<td style="text-align:left;">
+4.4
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.765</td>
-<td align="left">1</td>
-<td align="left">1.6</td>
-<td align="left">5.1</td>
-<td align="left">6.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.765
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.6
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">0.762</td>
-<td align="left">0.1</td>
-<td align="left">0.3</td>
-<td align="left">1.8</td>
-<td align="left">2.5</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+0.762
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.5
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
@@ -434,14 +585,16 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb2-14"><a href="#cb2-14"></a>         <span class="dt">factor.counts=</span><span class="ot">TRUE</span>,</span>
 <span id="cb2-15"><a href="#cb2-15"></a>         <span class="dt">factor.numeric=</span><span class="ot">FALSE</span>,</span>
 <span id="cb2-16"><a href="#cb2-16"></a>         <span class="dt">logical.numeric=</span><span class="ot">FALSE</span>,</span>
-<span id="cb2-17"><a href="#cb2-17"></a>         <span class="dt">labels=</span><span class="ot">NA</span>,</span>
-<span id="cb2-18"><a href="#cb2-18"></a>         <span class="dt">title=</span><span class="st">&#39;Summary Statistics&#39;</span>,</span>
-<span id="cb2-19"><a href="#cb2-19"></a>         <span class="dt">note =</span> <span class="ot">NA</span>, </span>
-<span id="cb2-20"><a href="#cb2-20"></a>         <span class="dt">anchor=</span><span class="ot">NA</span>,</span>
-<span id="cb2-21"><a href="#cb2-21"></a>         <span class="dt">col.width=</span><span class="ot">NA</span>,</span>
-<span id="cb2-22"><a href="#cb2-22"></a>         <span class="dt">col.align=</span><span class="ot">NA</span>,</span>
-<span id="cb2-23"><a href="#cb2-23"></a>         <span class="dt">align=</span><span class="ot">NA</span>,</span>
-<span id="cb2-24"><a href="#cb2-24"></a>         <span class="dt">opts=</span><span class="kw">list</span>())</span></code></pre></div>
+<span id="cb2-17"><a href="#cb2-17"></a>         <span class="dt">logical.labels=</span><span class="kw">c</span>(<span class="st">&#39;No&#39;</span>,<span class="st">&#39;Yes&#39;</span>),</span>
+<span id="cb2-18"><a href="#cb2-18"></a>         <span class="dt">labels=</span><span class="ot">NA</span>,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>         <span class="dt">title=</span><span class="st">&#39;Summary Statistics&#39;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>         <span class="dt">note =</span> <span class="ot">NA</span>, </span>
+<span id="cb2-21"><a href="#cb2-21"></a>         <span class="dt">anchor=</span><span class="ot">NA</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>         <span class="dt">col.width=</span><span class="ot">NA</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>         <span class="dt">col.align=</span><span class="ot">NA</span>,</span>
+<span id="cb2-24"><a href="#cb2-24"></a>         <span class="dt">align=</span><span class="ot">NA</span>,</span>
+<span id="cb2-25"><a href="#cb2-25"></a>         <span class="dt">simple.kable=</span><span class="ot">FALSE</span>,</span>
+<span id="cb2-26"><a href="#cb2-26"></a>         <span class="dt">opts=</span><span class="kw">list</span>())</span></code></pre></div>
 <p>The goal of <code>sumtable()</code> is to take a data set <code>data</code> and output a usually-HTML (but <code>data.frame</code>, <code>kable</code>, and <code>latex</code> options are there too) file with summary statistics for each of the variables in <code>data</code>. There are several options as to how the table will be constructed, and each of these options are explained below. Throughout, the output will be built as <code>kable</code>s since this is an RMarkdown document. However, generally you can leave <code>out</code> at its default and it will publish an HTML table to Viewer (in RStudio) or the browser (otherwise). This will also include some additional information about your data that can’t be demonstrated in this vignette:</p>
 <div id="data-and-vars" class="section level2">
 <h2><code>data</code> and <code>vars</code></h2>
@@ -524,71 +677,155 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb6-4"><a href="#cb6-4"></a>                <span class="st">&#39;median(x)&#39;</span>,</span>
 <span id="cb6-5"><a href="#cb6-5"></a>                <span class="st">&#39;propNA(x)&#39;</span>))</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">NotNA</th>
-<th align="left">Mean</th>
-<th align="left">Median</th>
-<th align="left">PropNA</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+NotNA
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Median
+</th>
+<th style="text-align:left;">
+PropNA
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">5.8</td>
-<td align="left">0</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+5.8
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">3</td>
-<td align="left">0</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">4.35</td>
-<td align="left">0</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+4.35
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">1.3</td>
-<td align="left">0</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+1.3
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
@@ -603,63 +840,155 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb7-9"><a href="#cb7-9"></a>     <span class="kw">c</span>(<span class="st">&#39;Count&#39;</span>,<span class="st">&#39;Percent&#39;</span>)</span>
 <span id="cb7-10"><a href="#cb7-10"></a>   ))</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">SD of X^2</th>
-<th align="left">Min</th>
-<th align="left">Max</th>
-<th align="left">Variable</th>
-<th align="left">Count</th>
-<th align="left">Percent</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+SD of X^2
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Max
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Count
+</th>
+<th style="text-align:left;">
+Percent
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">9.922</td>
-<td align="left">4.3</td>
-<td align="left">7.9</td>
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+9.922
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+7.9
+</td>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">2.739</td>
-<td align="left">2</td>
-<td align="left">4.4</td>
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+2.739
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+4.4
+</td>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">12.627</td>
-<td align="left">1</td>
-<td align="left">6.9</td>
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+12.627
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+6.9
+</td>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">1.83</td>
-<td align="left">0.1</td>
-<td align="left">2.5</td>
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+1.83
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+2.5
+</td>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
 </tbody>
 </table>
@@ -670,272 +999,625 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p><code>group</code> is a character variable containing the column name in <code>data</code> that you want to calculate summary statistics separately for. At the moment this supports only a single variable, although you can combine multiple variables into a single one yourself before using <code>sumtable</code>.</p>
 <p><code>group.long</code> is a flag for whether you want the different group summary statistics stacked side-by-side (<code>group.long = FALSE</code>), making for easier comparisons, or on top of each other (<code>group.long = TRUE</code>), giving things a bit more room to breathe and allowing space for more statistics. Defaults to <code>FALSE</code>.</p>
 <p><code>group.test</code>, which is only compatible with <code>group.long = FALSE</code>, performs a test of independence between the variable in <code>group</code> and each of the variables in your summary statistics table. Defaults to <code>FALSE</code>. Default <code>group.test = TRUE</code> behavior is to perform a group F-test (with <code>anova(lm())</code>) for numeric variables, and a chi-squared test (with <code>chisq.test</code>) for factor, logical, and character variables, returning results in the format ‘Test statistic name = Test statistic^significance stars’. If you want to change any of that, instead of <code>group.test = TRUE</code>, set <code>group.test</code> equal to a named list of options that will be send to the <code>opts</code> argument of <code>independence.test</code>. See <code>help(independence.test)</code>.</p>
-<p>Be aware that the table produced with <code>group</code> uses multi-column cells. So it will not look quite as nice when outputting to a format that does not support multi-column cells, like <code>out=&#39;kable&#39;</code> (as you see below) or <code>out=&#39;return&#39;</code>.</p>
+<p>Be aware that the table produced with <code>group</code> uses multi-column cells. So it will not look quite as nice when outputting to a format that does not support multi-column cells, like <code>out=&#39;return&#39;</code>. Multi-column cells are supported in <code>out=&#39;kable&#39;</code> for <code>group</code>, as below, but are not supported on other rows of the <code>kable</code>. Multi-column cells are supported for <code>out=&#39;kable&#39;</code> only for HTML and LaTeX output.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">st</span>(iris, <span class="dt">group =</span> <span class="st">&#39;Species&#39;</span>, <span class="dt">group.test =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">SD</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">SD</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">SD</th>
-<th align="left">Test</th>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Species
+</div>
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+setosa
+</div>
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+versicolor
+</div>
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+virginica
+</div>
+</th>
+<th style="border-bottom:hidden" colspan="1">
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+SD
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+SD
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+SD
+</th>
+<th style="text-align:left;">
+Test
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">setosa</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">versicolor</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">virginica</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.006
+</td>
+<td style="text-align:left;">
+0.352
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.936
+</td>
+<td style="text-align:left;">
+0.516
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+6.588
+</td>
+<td style="text-align:left;">
+0.636
+</td>
+<td style="text-align:left;">
+F=119.265<sup>***</sup>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Length</td>
-<td align="left">50</td>
-<td align="left">5.006</td>
-<td align="left">0.352</td>
-<td align="left">50</td>
-<td align="left">5.936</td>
-<td align="left">0.516</td>
-<td align="left">50</td>
-<td align="left">6.588</td>
-<td align="left">0.636</td>
-<td align="left">F=119.265<sup>***</sup></td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+3.428
+</td>
+<td style="text-align:left;">
+0.379
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.77
+</td>
+<td style="text-align:left;">
+0.314
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.974
+</td>
+<td style="text-align:left;">
+0.322
+</td>
+<td style="text-align:left;">
+F=49.16<sup>***</sup>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Sepal.Width</td>
-<td align="left">50</td>
-<td align="left">3.428</td>
-<td align="left">0.379</td>
-<td align="left">50</td>
-<td align="left">2.77</td>
-<td align="left">0.314</td>
-<td align="left">50</td>
-<td align="left">2.974</td>
-<td align="left">0.322</td>
-<td align="left">F=49.16<sup>***</sup></td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1.462
+</td>
+<td style="text-align:left;">
+0.174
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+4.26
+</td>
+<td style="text-align:left;">
+0.47
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.552
+</td>
+<td style="text-align:left;">
+0.552
+</td>
+<td style="text-align:left;">
+F=1180.161<sup>***</sup>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Length</td>
-<td align="left">50</td>
-<td align="left">1.462</td>
-<td align="left">0.174</td>
-<td align="left">50</td>
-<td align="left">4.26</td>
-<td align="left">0.47</td>
-<td align="left">50</td>
-<td align="left">5.552</td>
-<td align="left">0.552</td>
-<td align="left">F=1180.161<sup>***</sup></td>
-</tr>
-<tr class="odd">
-<td align="left">Petal.Width</td>
-<td align="left">50</td>
-<td align="left">0.246</td>
-<td align="left">0.105</td>
-<td align="left">50</td>
-<td align="left">1.326</td>
-<td align="left">0.198</td>
-<td align="left">50</td>
-<td align="left">2.026</td>
-<td align="left">0.275</td>
-<td align="left">F=960.007<sup>***</sup></td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+0.246
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1.326
+</td>
+<td style="text-align:left;">
+0.198
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.026
+</td>
+<td style="text-align:left;">
+0.275
+</td>
+<td style="text-align:left;">
+F=960.007<sup>***</sup>
+</td>
 </tr>
 </tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Statistical significance markers: * p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01
+</td>
+</tr>
+</tfoot>
 </table>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">st</span>(iris, <span class="dt">group =</span> <span class="st">&#39;Species&#39;</span>, <span class="dt">group.long =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th></th>
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>1</td>
-<td align="left">Species: setosa</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species: setosa
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td>2</td>
-<td align="left">Sepal.Length</td>
-<td align="left">50</td>
-<td align="left">5.006</td>
-<td align="left">0.352</td>
-<td align="left">4.3</td>
-<td align="left">4.8</td>
-<td align="left">5.2</td>
-<td align="left">5.8</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.006
+</td>
+<td style="text-align:left;">
+0.352
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+4.8
+</td>
+<td style="text-align:left;">
+5.2
+</td>
+<td style="text-align:left;">
+5.8
+</td>
 </tr>
-<tr class="odd">
-<td>3</td>
-<td align="left">Sepal.Width</td>
-<td align="left">50</td>
-<td align="left">3.428</td>
-<td align="left">0.379</td>
-<td align="left">2.3</td>
-<td align="left">3.2</td>
-<td align="left">3.675</td>
-<td align="left">4.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+3.428
+</td>
+<td style="text-align:left;">
+0.379
+</td>
+<td style="text-align:left;">
+2.3
+</td>
+<td style="text-align:left;">
+3.2
+</td>
+<td style="text-align:left;">
+3.675
+</td>
+<td style="text-align:left;">
+4.4
+</td>
 </tr>
-<tr class="even">
-<td>4</td>
-<td align="left">Petal.Length</td>
-<td align="left">50</td>
-<td align="left">1.462</td>
-<td align="left">0.174</td>
-<td align="left">1</td>
-<td align="left">1.4</td>
-<td align="left">1.575</td>
-<td align="left">1.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1.462
+</td>
+<td style="text-align:left;">
+0.174
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.4
+</td>
+<td style="text-align:left;">
+1.575
+</td>
+<td style="text-align:left;">
+1.9
+</td>
 </tr>
-<tr class="odd">
-<td>5</td>
-<td align="left">Petal.Width</td>
-<td align="left">50</td>
-<td align="left">0.246</td>
-<td align="left">0.105</td>
-<td align="left">0.1</td>
-<td align="left">0.2</td>
-<td align="left">0.3</td>
-<td align="left">0.6</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+0.246
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.2
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+0.6
+</td>
 </tr>
-<tr class="even">
-<td>7</td>
-<td align="left">Species: versicolor</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species: versicolor
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td>8</td>
-<td align="left">Sepal.Length</td>
-<td align="left">50</td>
-<td align="left">5.936</td>
-<td align="left">0.516</td>
-<td align="left">4.9</td>
-<td align="left">5.6</td>
-<td align="left">6.3</td>
-<td align="left">7</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.936
+</td>
+<td style="text-align:left;">
+0.516
+</td>
+<td style="text-align:left;">
+4.9
+</td>
+<td style="text-align:left;">
+5.6
+</td>
+<td style="text-align:left;">
+6.3
+</td>
+<td style="text-align:left;">
+7
+</td>
 </tr>
-<tr class="even">
-<td>9</td>
-<td align="left">Sepal.Width</td>
-<td align="left">50</td>
-<td align="left">2.77</td>
-<td align="left">0.314</td>
-<td align="left">2</td>
-<td align="left">2.525</td>
-<td align="left">3</td>
-<td align="left">3.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.77
+</td>
+<td style="text-align:left;">
+0.314
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.525
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+3.4
+</td>
 </tr>
-<tr class="odd">
-<td>10</td>
-<td align="left">Petal.Length</td>
-<td align="left">50</td>
-<td align="left">4.26</td>
-<td align="left">0.47</td>
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">4.6</td>
-<td align="left">5.1</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+4.26
+</td>
+<td style="text-align:left;">
+0.47
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+4.6
+</td>
+<td style="text-align:left;">
+5.1
+</td>
 </tr>
-<tr class="even">
-<td>11</td>
-<td align="left">Petal.Width</td>
-<td align="left">50</td>
-<td align="left">1.326</td>
-<td align="left">0.198</td>
-<td align="left">1</td>
-<td align="left">1.2</td>
-<td align="left">1.5</td>
-<td align="left">1.8</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1.326
+</td>
+<td style="text-align:left;">
+0.198
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.2
+</td>
+<td style="text-align:left;">
+1.5
+</td>
+<td style="text-align:left;">
+1.8
+</td>
 </tr>
-<tr class="odd">
-<td>13</td>
-<td align="left">Species: virginica</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species: virginica
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td>14</td>
-<td align="left">Sepal.Length</td>
-<td align="left">50</td>
-<td align="left">6.588</td>
-<td align="left">0.636</td>
-<td align="left">4.9</td>
-<td align="left">6.225</td>
-<td align="left">6.9</td>
-<td align="left">7.9</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+6.588
+</td>
+<td style="text-align:left;">
+0.636
+</td>
+<td style="text-align:left;">
+4.9
+</td>
+<td style="text-align:left;">
+6.225
+</td>
+<td style="text-align:left;">
+6.9
+</td>
+<td style="text-align:left;">
+7.9
+</td>
 </tr>
-<tr class="odd">
-<td>15</td>
-<td align="left">Sepal.Width</td>
-<td align="left">50</td>
-<td align="left">2.974</td>
-<td align="left">0.322</td>
-<td align="left">2.2</td>
-<td align="left">2.8</td>
-<td align="left">3.175</td>
-<td align="left">3.8</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.974
+</td>
+<td style="text-align:left;">
+0.322
+</td>
+<td style="text-align:left;">
+2.2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+3.175
+</td>
+<td style="text-align:left;">
+3.8
+</td>
 </tr>
-<tr class="even">
-<td>16</td>
-<td align="left">Petal.Length</td>
-<td align="left">50</td>
-<td align="left">5.552</td>
-<td align="left">0.552</td>
-<td align="left">4.5</td>
-<td align="left">5.1</td>
-<td align="left">5.875</td>
-<td align="left">6.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+5.552
+</td>
+<td style="text-align:left;">
+0.552
+</td>
+<td style="text-align:left;">
+4.5
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+5.875
+</td>
+<td style="text-align:left;">
+6.9
+</td>
 </tr>
-<tr class="odd">
-<td>17</td>
-<td align="left">Petal.Width</td>
-<td align="left">50</td>
-<td align="left">2.026</td>
-<td align="left">0.275</td>
-<td align="left">1.4</td>
-<td align="left">1.8</td>
-<td align="left">2.3</td>
-<td align="left">2.5</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.026
+</td>
+<td style="text-align:left;">
+0.275
+</td>
+<td style="text-align:left;">
+1.4
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.3
+</td>
+<td style="text-align:left;">
+2.5
+</td>
 </tr>
 </tbody>
 </table>
@@ -949,131 +1631,322 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb10-3"><a href="#cb10-3"></a><span class="co">#so break the column after the first four variables.</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="kw">st</span>(iris, <span class="dt">col.breaks =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Percent</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Percent
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">0.828</td>
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+0.828
+</td>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">0.436</td>
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+0.436
+</td>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.765</td>
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.765
+</td>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">0.762</td>
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+0.762
+</td>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#Why not three columns?</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="kw">sumtable</span>(mtcars, <span class="dt">col.breaks =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">8</span>))</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">mpg</td>
-<td align="left">32</td>
-<td align="left">20.091</td>
-<td align="left">6.027</td>
-<td align="left">drat</td>
-<td align="left">32</td>
-<td align="left">3.597</td>
-<td align="left">0.535</td>
-<td align="left">am</td>
-<td align="left">32</td>
-<td align="left">0.406</td>
-<td align="left">0.499</td>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+20.091
+</td>
+<td style="text-align:left;">
+6.027
+</td>
+<td style="text-align:left;">
+drat
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+3.597
+</td>
+<td style="text-align:left;">
+0.535
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+0.406
+</td>
+<td style="text-align:left;">
+0.499
+</td>
 </tr>
-<tr class="even">
-<td align="left">cyl</td>
-<td align="left">32</td>
-<td align="left">6.188</td>
-<td align="left">1.786</td>
-<td align="left">wt</td>
-<td align="left">32</td>
-<td align="left">3.217</td>
-<td align="left">0.978</td>
-<td align="left">gear</td>
-<td align="left">32</td>
-<td align="left">3.688</td>
-<td align="left">0.738</td>
+<tr>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+6.188
+</td>
+<td style="text-align:left;">
+1.786
+</td>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+3.217
+</td>
+<td style="text-align:left;">
+0.978
+</td>
+<td style="text-align:left;">
+gear
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+3.688
+</td>
+<td style="text-align:left;">
+0.738
+</td>
 </tr>
-<tr class="odd">
-<td align="left">disp</td>
-<td align="left">32</td>
-<td align="left">230.722</td>
-<td align="left">123.939</td>
-<td align="left">qsec</td>
-<td align="left">32</td>
-<td align="left">17.849</td>
-<td align="left">1.787</td>
-<td align="left">carb</td>
-<td align="left">32</td>
-<td align="left">2.812</td>
-<td align="left">1.615</td>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+230.722
+</td>
+<td style="text-align:left;">
+123.939
+</td>
+<td style="text-align:left;">
+qsec
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+17.849
+</td>
+<td style="text-align:left;">
+1.787
+</td>
+<td style="text-align:left;">
+carb
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+2.812
+</td>
+<td style="text-align:left;">
+1.615
+</td>
 </tr>
-<tr class="even">
-<td align="left">hp</td>
-<td align="left">32</td>
-<td align="left">146.688</td>
-<td align="left">68.563</td>
-<td align="left">vs</td>
-<td align="left">32</td>
-<td align="left">0.438</td>
-<td align="left">0.504</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+146.688
+</td>
+<td style="text-align:left;">
+68.563
+</td>
+<td style="text-align:left;">
+vs
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+0.438
+</td>
+<td style="text-align:left;">
+0.504
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
@@ -1083,195 +1956,447 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p><code>digits</code> indicates how many digits after the decimal place should be displayed. <code>fixed.digits</code> determines whether trailing zeros are maintained.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">st</span>(iris, <span class="dt">digits =</span> <span class="dv">5</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.84333</td>
-<td align="left">0.82807</td>
-<td align="left">4.3</td>
-<td align="left">5.1</td>
-<td align="left">6.4</td>
-<td align="left">7.9</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.84333
+</td>
+<td style="text-align:left;">
+0.82807
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.4
+</td>
+<td style="text-align:left;">
+7.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.05733</td>
-<td align="left">0.43587</td>
-<td align="left">2</td>
-<td align="left">2.8</td>
-<td align="left">3.3</td>
-<td align="left">4.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.05733
+</td>
+<td style="text-align:left;">
+0.43587
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+3.3
+</td>
+<td style="text-align:left;">
+4.4
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.7653</td>
-<td align="left">1</td>
-<td align="left">1.6</td>
-<td align="left">5.1</td>
-<td align="left">6.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.7653
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.6
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.19933</td>
-<td align="left">0.76224</td>
-<td align="left">0.1</td>
-<td align="left">0.3</td>
-<td align="left">1.8</td>
-<td align="left">2.5</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.19933
+</td>
+<td style="text-align:left;">
+0.76224
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.5
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.333%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.333%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.333%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.333%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.333%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.333%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">st</span>(iris, <span class="dt">digits =</span> <span class="dv">3</span>, <span class="dt">fixed.digits =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">0.828</td>
-<td align="left">4.300</td>
-<td align="left">5.100</td>
-<td align="left">6.400</td>
-<td align="left">7.900</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+0.828
+</td>
+<td style="text-align:left;">
+4.300
+</td>
+<td style="text-align:left;">
+5.100
+</td>
+<td style="text-align:left;">
+6.400
+</td>
+<td style="text-align:left;">
+7.900
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">0.436</td>
-<td align="left">2.000</td>
-<td align="left">2.800</td>
-<td align="left">3.300</td>
-<td align="left">4.400</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+0.436
+</td>
+<td style="text-align:left;">
+2.000
+</td>
+<td style="text-align:left;">
+2.800
+</td>
+<td style="text-align:left;">
+3.300
+</td>
+<td style="text-align:left;">
+4.400
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.765</td>
-<td align="left">1.000</td>
-<td align="left">1.600</td>
-<td align="left">5.100</td>
-<td align="left">6.900</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.765
+</td>
+<td style="text-align:left;">
+1.000
+</td>
+<td style="text-align:left;">
+1.600
+</td>
+<td style="text-align:left;">
+5.100
+</td>
+<td style="text-align:left;">
+6.900
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">0.762</td>
-<td align="left">0.100</td>
-<td align="left">0.300</td>
-<td align="left">1.800</td>
-<td align="left">2.500</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+0.762
+</td>
+<td style="text-align:left;">
+0.100
+</td>
+<td style="text-align:left;">
+0.300
+</td>
+<td style="text-align:left;">
+1.800
+</td>
+<td style="text-align:left;">
+2.500
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left">50</td>
-<td align="left">33.3%</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+33.3%
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
@@ -1279,201 +2404,464 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="factor-logical-and-character-display-options" class="section level2">
 <h2>Factor, Logical, and Character Display Options</h2>
 <p>How should factor, logical, and character variables (all of which get turned into factors in the <code>sumtable</code>-making process) be shown on the <code>sumtable()</code>?</p>
-<p>In all <code>sumtable()s</code>, there is one row for the name of the factor variable, with the number of nonmissing observations of the variable. Then there’s one row for each of the values (for logicals, TRUE and FALSE become ‘Yes’ and ‘No’), showing the count and percentage (i.e. 50%) of observations with that value.</p>
+<p>In all <code>sumtable()s</code>, there is one row for the name of the factor variable, with the number of nonmissing observations of the variable. Then there’s one row for each of the values (for logicals, FALSE and TRUE become ‘No’ and ‘Yes’, or pick your own labels with <code>logical.labels</code>), showing the count and percentage (i.e. 50%) of observations with that value.</p>
 <p>Set <code>factor.percent = FALSE</code> to report the proportion of observations (.5) instead of the percentage (50%) for the values.</p>
 <p>Set <code>factor.counts = FALSE</code> to omit the count for the individual values. So you’ll see the number of nonmissing observations for the variable overall, and then just the percentage/proportion for each of the values.</p>
 <p>Set <code>factor.numeric = TRUE</code> and/or <code>logical.numeric = TRUE</code> to ignore all this special treatment for factor/logical variables (respectively), and just treat each of the values as numeric binary variables. <code>factor.numeric</code> also covers character variables.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">st</span>(iris, <span class="dt">factor.percent =</span> <span class="ot">FALSE</span>, <span class="dt">factor.counts =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">0.828</td>
-<td align="left">4.3</td>
-<td align="left">5.1</td>
-<td align="left">6.4</td>
-<td align="left">7.9</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+0.828
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.4
+</td>
+<td style="text-align:left;">
+7.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">0.436</td>
-<td align="left">2</td>
-<td align="left">2.8</td>
-<td align="left">3.3</td>
-<td align="left">4.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+0.436
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+3.3
+</td>
+<td style="text-align:left;">
+4.4
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.765</td>
-<td align="left">1</td>
-<td align="left">1.6</td>
-<td align="left">5.1</td>
-<td align="left">6.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.765
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.6
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">0.762</td>
-<td align="left">0.1</td>
-<td align="left">0.3</td>
-<td align="left">1.8</td>
-<td align="left">2.5</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+0.762
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.5
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left">150</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left"></td>
-<td align="left">0.333</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left"></td>
-<td align="left">0.333</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left"></td>
-<td align="left">0.333</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">st</span>(iris, <span class="dt">factor.numeric =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="left">150</td>
-<td align="left">5.843</td>
-<td align="left">0.828</td>
-<td align="left">4.3</td>
-<td align="left">5.1</td>
-<td align="left">6.4</td>
-<td align="left">7.9</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+5.843
+</td>
+<td style="text-align:left;">
+0.828
+</td>
+<td style="text-align:left;">
+4.3
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.4
+</td>
+<td style="text-align:left;">
+7.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="left">150</td>
-<td align="left">3.057</td>
-<td align="left">0.436</td>
-<td align="left">2</td>
-<td align="left">2.8</td>
-<td align="left">3.3</td>
-<td align="left">4.4</td>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.057
+</td>
+<td style="text-align:left;">
+0.436
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+3.3
+</td>
+<td style="text-align:left;">
+4.4
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="left">150</td>
-<td align="left">3.758</td>
-<td align="left">1.765</td>
-<td align="left">1</td>
-<td align="left">1.6</td>
-<td align="left">5.1</td>
-<td align="left">6.9</td>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+1.765
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.6
+</td>
+<td style="text-align:left;">
+5.1
+</td>
+<td style="text-align:left;">
+6.9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="left">150</td>
-<td align="left">1.199</td>
-<td align="left">0.762</td>
-<td align="left">0.1</td>
-<td align="left">0.3</td>
-<td align="left">1.8</td>
-<td align="left">2.5</td>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+1.199
+</td>
+<td style="text-align:left;">
+0.762
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.5
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Species</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td align="left">… setosa</td>
-<td align="left">150</td>
-<td align="left">0.333</td>
-<td align="left">0.473</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
+<tr>
+<td style="text-align:left;">
+… setosa
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+0.473
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td align="left">… versicolor</td>
-<td align="left">150</td>
-<td align="left">0.333</td>
-<td align="left">0.473</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
+<tr>
+<td style="text-align:left;">
+… versicolor
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+0.473
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="left">… virginica</td>
-<td align="left">150</td>
-<td align="left">0.333</td>
-<td align="left">0.473</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
+<tr>
+<td style="text-align:left;">
+… virginica
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+0.333
+</td>
+<td style="text-align:left;">
+0.473
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
 </tbody>
 </table>
@@ -1496,68 +2884,167 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb16-8"><a href="#cb16-8"></a>    <span class="st">&#39;numeric % growth rate of dpi&#39;</span>)</span>
 <span id="cb16-9"><a href="#cb16-9"></a><span class="kw">sumtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">50</td>
-<td align="left">9.671</td>
-<td align="left">4.48</td>
-<td align="left">0.6</td>
-<td align="left">6.97</td>
-<td align="left">12.617</td>
-<td align="left">21.1</td>
+<tr>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+9.671
+</td>
+<td style="text-align:left;">
+4.48
+</td>
+<td style="text-align:left;">
+0.6
+</td>
+<td style="text-align:left;">
+6.97
+</td>
+<td style="text-align:left;">
+12.617
+</td>
+<td style="text-align:left;">
+21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">numeric % of population under 15</td>
-<td align="left">50</td>
-<td align="left">35.09</td>
-<td align="left">9.152</td>
-<td align="left">21.44</td>
-<td align="left">26.215</td>
-<td align="left">44.065</td>
-<td align="left">47.64</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+35.09
+</td>
+<td style="text-align:left;">
+9.152
+</td>
+<td style="text-align:left;">
+21.44
+</td>
+<td style="text-align:left;">
+26.215
+</td>
+<td style="text-align:left;">
+44.065
+</td>
+<td style="text-align:left;">
+47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">numeric % of population over 75</td>
-<td align="left">50</td>
-<td align="left">2.293</td>
-<td align="left">1.291</td>
-<td align="left">0.56</td>
-<td align="left">1.125</td>
-<td align="left">3.325</td>
-<td align="left">4.7</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.293
+</td>
+<td style="text-align:left;">
+1.291
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+<td style="text-align:left;">
+1.125
+</td>
+<td style="text-align:left;">
+3.325
+</td>
+<td style="text-align:left;">
+4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">50</td>
-<td align="left">1106.758</td>
-<td align="left">990.869</td>
-<td align="left">88.94</td>
-<td align="left">288.207</td>
-<td align="left">1795.622</td>
-<td align="left">4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1106.758
+</td>
+<td style="text-align:left;">
+990.869
+</td>
+<td style="text-align:left;">
+88.94
+</td>
+<td style="text-align:left;">
+288.207
+</td>
+<td style="text-align:left;">
+1795.622
+</td>
+<td style="text-align:left;">
+4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">numeric % growth rate of dpi</td>
-<td align="left">50</td>
-<td align="left">3.758</td>
-<td align="left">2.87</td>
-<td align="left">0.22</td>
-<td align="left">2.002</td>
-<td align="left">4.477</td>
-<td align="left">16.71</td>
+<tr>
+<td style="text-align:left;">
+numeric % growth rate of dpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+2.87
+</td>
+<td style="text-align:left;">
+0.22
+</td>
+<td style="text-align:left;">
+2.002
+</td>
+<td style="text-align:left;">
+4.477
+</td>
+<td style="text-align:left;">
+16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -1574,68 +3061,167 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb17-6"><a href="#cb17-6"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>))</span>
 <span id="cb17-7"><a href="#cb17-7"></a><span class="kw">st</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">50</td>
-<td align="left">9.671</td>
-<td align="left">4.48</td>
-<td align="left">0.6</td>
-<td align="left">6.97</td>
-<td align="left">12.617</td>
-<td align="left">21.1</td>
+<tr>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+9.671
+</td>
+<td style="text-align:left;">
+4.48
+</td>
+<td style="text-align:left;">
+0.6
+</td>
+<td style="text-align:left;">
+6.97
+</td>
+<td style="text-align:left;">
+12.617
+</td>
+<td style="text-align:left;">
+21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">numeric % of population under 15</td>
-<td align="left">50</td>
-<td align="left">35.09</td>
-<td align="left">9.152</td>
-<td align="left">21.44</td>
-<td align="left">26.215</td>
-<td align="left">44.065</td>
-<td align="left">47.64</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+35.09
+</td>
+<td style="text-align:left;">
+9.152
+</td>
+<td style="text-align:left;">
+21.44
+</td>
+<td style="text-align:left;">
+26.215
+</td>
+<td style="text-align:left;">
+44.065
+</td>
+<td style="text-align:left;">
+47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">numeric % of population over 75</td>
-<td align="left">50</td>
-<td align="left">2.293</td>
-<td align="left">1.291</td>
-<td align="left">0.56</td>
-<td align="left">1.125</td>
-<td align="left">3.325</td>
-<td align="left">4.7</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.293
+</td>
+<td style="text-align:left;">
+1.291
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+<td style="text-align:left;">
+1.125
+</td>
+<td style="text-align:left;">
+3.325
+</td>
+<td style="text-align:left;">
+4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">50</td>
-<td align="left">1106.758</td>
-<td align="left">990.869</td>
-<td align="left">88.94</td>
-<td align="left">288.207</td>
-<td align="left">1795.622</td>
-<td align="left">4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1106.758
+</td>
+<td style="text-align:left;">
+990.869
+</td>
+<td style="text-align:left;">
+88.94
+</td>
+<td style="text-align:left;">
+288.207
+</td>
+<td style="text-align:left;">
+1795.622
+</td>
+<td style="text-align:left;">
+4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">50</td>
-<td align="left">3.758</td>
-<td align="left">2.87</td>
-<td align="left">0.22</td>
-<td align="left">2.002</td>
-<td align="left">4.477</td>
-<td align="left">16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+2.87
+</td>
+<td style="text-align:left;">
+0.22
+</td>
+<td style="text-align:left;">
+2.002
+</td>
+<td style="text-align:left;">
+4.477
+</td>
+<td style="text-align:left;">
+16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -1649,68 +3235,167 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb18-3"><a href="#cb18-3"></a>    <span class="dt">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
 <span id="cb18-4"><a href="#cb18-4"></a><span class="kw">sumtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
 <table>
+<caption>
+Summary Statistics
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">N</th>
-<th align="left">Mean</th>
-<th align="left">Std. Dev.</th>
-<th align="left">Min</th>
-<th align="left">Pctl. 25</th>
-<th align="left">Pctl. 75</th>
-<th align="left">Max</th>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+Mean
+</th>
+<th style="text-align:left;">
+Std. Dev.
+</th>
+<th style="text-align:left;">
+Min
+</th>
+<th style="text-align:left;">
+Pctl. 25
+</th>
+<th style="text-align:left;">
+Pctl. 75
+</th>
+<th style="text-align:left;">
+Max
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">numeric aggregate personal savings</td>
-<td align="left">50</td>
-<td align="left">9.671</td>
-<td align="left">4.48</td>
-<td align="left">0.6</td>
-<td align="left">6.97</td>
-<td align="left">12.617</td>
-<td align="left">21.1</td>
+<tr>
+<td style="text-align:left;">
+numeric aggregate personal savings
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+9.671
+</td>
+<td style="text-align:left;">
+4.48
+</td>
+<td style="text-align:left;">
+0.6
+</td>
+<td style="text-align:left;">
+6.97
+</td>
+<td style="text-align:left;">
+12.617
+</td>
+<td style="text-align:left;">
+21.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">numeric % of population under 15</td>
-<td align="left">50</td>
-<td align="left">35.09</td>
-<td align="left">9.152</td>
-<td align="left">21.44</td>
-<td align="left">26.215</td>
-<td align="left">44.065</td>
-<td align="left">47.64</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population under 15
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+35.09
+</td>
+<td style="text-align:left;">
+9.152
+</td>
+<td style="text-align:left;">
+21.44
+</td>
+<td style="text-align:left;">
+26.215
+</td>
+<td style="text-align:left;">
+44.065
+</td>
+<td style="text-align:left;">
+47.64
+</td>
 </tr>
-<tr class="odd">
-<td align="left">numeric % of population over 75</td>
-<td align="left">50</td>
-<td align="left">2.293</td>
-<td align="left">1.291</td>
-<td align="left">0.56</td>
-<td align="left">1.125</td>
-<td align="left">3.325</td>
-<td align="left">4.7</td>
+<tr>
+<td style="text-align:left;">
+numeric % of population over 75
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+2.293
+</td>
+<td style="text-align:left;">
+1.291
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+<td style="text-align:left;">
+1.125
+</td>
+<td style="text-align:left;">
+3.325
+</td>
+<td style="text-align:left;">
+4.7
+</td>
 </tr>
-<tr class="even">
-<td align="left">dpi</td>
-<td align="left">50</td>
-<td align="left">1106.758</td>
-<td align="left">990.869</td>
-<td align="left">88.94</td>
-<td align="left">288.207</td>
-<td align="left">1795.622</td>
-<td align="left">4001.89</td>
+<tr>
+<td style="text-align:left;">
+dpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+1106.758
+</td>
+<td style="text-align:left;">
+990.869
+</td>
+<td style="text-align:left;">
+88.94
+</td>
+<td style="text-align:left;">
+288.207
+</td>
+<td style="text-align:left;">
+1795.622
+</td>
+<td style="text-align:left;">
+4001.89
+</td>
 </tr>
-<tr class="odd">
-<td align="left">ddpi</td>
-<td align="left">50</td>
-<td align="left">3.758</td>
-<td align="left">2.87</td>
-<td align="left">0.22</td>
-<td align="left">2.002</td>
-<td align="left">4.477</td>
-<td align="left">16.71</td>
+<tr>
+<td style="text-align:left;">
+ddpi
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+3.758
+</td>
+<td style="text-align:left;">
+2.87
+</td>
+<td style="text-align:left;">
+0.22
+</td>
+<td style="text-align:left;">
+2.002
+</td>
+<td style="text-align:left;">
+4.477
+</td>
+<td style="text-align:left;">
+16.71
+</td>
 </tr>
 </tbody>
 </table>
@@ -1721,7 +3406,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p><code>title</code> will include a title for your table.</p>
 <p><code>note</code> will add a table note in the last row.</p>
 <p><code>anchor</code> will add an anchor ID (<code>&lt;a name =</code> in HTML or <code>\label{}</code> in LaTeX) to allow other parts of your document to link to it, if you are including your <code>sumtable</code> in a larger document.</p>
-<p><code>title</code> will only show up in output formats with titles That is, you won’t get them with <code>out = &#39;kable&#39;</code> or <code>out = &#39;return&#39;</code>. <code>note</code> and <code>anchor</code> will only show up in formats that support multi-column cells and anchoring, so they won’t work with <code>out = &#39;kable&#39;</code> or <code>out = &#39;return&#39;</code> either.</p>
+<p><code>title</code> will only show up in output formats with titles. That is, you won’t get them with <code>out = &#39;return&#39;</code>. <code>note</code> and <code>anchor</code> will only show up in formats that support multi-column cells and anchoring, so <code>anchor</code> won’t work with <code>out = &#39;kable&#39;</code> and neither will work with <code>out = &#39;return&#39;</code>.</p>
 </div>
 <div id="col.width" class="section level2">
 <h2><code>col.width</code></h2>

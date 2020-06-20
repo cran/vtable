@@ -12,10 +12,26 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-06-19" />
 
 <title>labeltable: Label Table</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -303,7 +319,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">labeltable: Label Table</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2020-04-01</h4>
+<h4 class="date">2020-06-19</h4>
 
 
 
@@ -324,78 +340,139 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb1-6"><a href="#cb1-6"></a>    <span class="dt">note=</span><span class="ot">NA</span>)</span></code></pre></div>
 <p><code>labeltable()</code> is a function that shows the values that correspond to <code>var</code>. This could be value label values, or it could be the values found in the data for the <code>...</code> variables.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#Include a single labelled variable to show how the values of that variable correspond to its value labels.</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(vtable)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(sjlabelled)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">data</span>(efc)</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">labeltable</span>(efc<span class="op">$</span>e15relat)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">library</span>(vtable)</span></code></pre></div>
+<pre><code>## Loading required package: kableExtra</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(sjlabelled)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">data</span>(efc)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">labeltable</span>(efc<span class="op">$</span>e15relat)</span></code></pre></div>
 <table>
 <thead>
-<tr class="header">
-<th align="left">e15relat</th>
-<th align="left">Label</th>
+<tr>
+<th style="text-align:left;">
+e15relat
+</th>
+<th style="text-align:left;">
+Label
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">spouse/partner</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+spouse/partner
+</td>
 </tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="left">child</td>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+child
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="left">sibling</td>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+sibling
+</td>
 </tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="left">daughter or son -in-law</td>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+daughter or son -in-law
+</td>
 </tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="left">ancle/aunt</td>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+ancle/aunt
+</td>
 </tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="left">nephew/niece</td>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+nephew/niece
+</td>
 </tr>
-<tr class="odd">
-<td align="left">7</td>
-<td align="left">cousin</td>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+cousin
+</td>
 </tr>
-<tr class="even">
-<td align="left">8</td>
-<td align="left">other, specify</td>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+other, specify
+</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#Include more than one variable to show, for each value of the first, what values of the others are present in the data.</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">data</span>(mtcars)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">labeltable</span>(mtcars<span class="op">$</span>cyl,mtcars<span class="op">$</span>carb,mtcars<span class="op">$</span>am)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#Include more than one variable to show, for each value of the first, what values of the others are present in the data.</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">data</span>(mtcars)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">labeltable</span>(mtcars<span class="op">$</span>cyl,mtcars<span class="op">$</span>carb,mtcars<span class="op">$</span>am)</span></code></pre></div>
 <table>
 <thead>
-<tr class="header">
-<th align="left">cyl</th>
-<th align="left">carb</th>
-<th align="left">am</th>
+<tr>
+<th style="text-align:left;">
+cyl
+</th>
+<th style="text-align:left;">
+carb
+</th>
+<th style="text-align:left;">
+am
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">4</td>
-<td align="left">1, 2</td>
-<td align="left">1, 0</td>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+1, 2
+</td>
+<td style="text-align:left;">
+1, 0
+</td>
 </tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="left">4, 1, 6</td>
-<td align="left">1, 0</td>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+4, 1, 6
+</td>
+<td style="text-align:left;">
+1, 0
+</td>
 </tr>
-<tr class="odd">
-<td align="left">8</td>
-<td align="left">2, 4, 3, 8</td>
-<td align="left">0, 1</td>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+2, 4, 3, 8
+</td>
+<td style="text-align:left;">
+0, 1
+</td>
 </tr>
 </tbody>
 </table>
@@ -445,10 +522,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="file" class="section level2">
 <h2><code>file</code></h2>
 <p>The <code>file</code> argument will write the variable documentation file to an HTML file and save it. Will automatically append ‘html’ filetype if the filename does not include a period.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">library</span>(vtable)</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">data</span>(LifeCycleSavings)</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">labeltable</span>(efc<span class="op">$</span>e15relat,<span class="dt">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">library</span>(vtable)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">data</span>(LifeCycleSavings)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">labeltable</span>(efc<span class="op">$</span>e15relat,<span class="dt">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
 </div>
 <div id="desc-note-and-anchor." class="section level2">
 <h2><code>desc</code>, <code>note</code>, and <code>anchor</code>.</h2>
