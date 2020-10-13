@@ -16,6 +16,8 @@
 #         col.width=NA,
 #         col.align=NA,
 #         align=NA,
+#         note.align='l',
+#         fit.page=NA,
 #         summ=NA,
 #         lush=FALSE,
 #         opts=list())
@@ -141,7 +143,7 @@ vtable(efc)
 ## ---- eval = FALSE------------------------------------------------------------
 #  library(sjlabelled)
 #  data(efc)
-#  vtable(efc,align = 'p{.3\\textwidth}cc', out = 'latex')
+#  vtable(efc,align = 'p{.3\\textwidth}cc', fit.page = '\\textwidth', out = 'latex')
 
 ## -----------------------------------------------------------------------------
 library(sjlabelled)

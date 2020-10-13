@@ -27,6 +27,8 @@ st(iris)
 #           col.width=NA,
 #           col.align=NA,
 #           align=NA,
+#           note.align='l',
+#           fit.page=NA,
 #           simple.kable=FALSE,
 #           opts=list())
 
@@ -129,5 +131,5 @@ sumtable(LifeCycleSavings,labels=labs)
 #  st(LifeCycleSavings,col.align = 'right')
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  sumtable(iris,align = 'p{.3\\textwidth}ccccccc', out = 'latex')
+#  sumtable(iris,align = 'p{.3\\textwidth}ccccccc', fit.page = '\\textwidth', out = 'latex')
 

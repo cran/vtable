@@ -4,7 +4,9 @@
 #      out=NA,
 #      file=NA,
 #      desc=NA,
-#      note=NA)
+#      note=NA,
+#      note.align=NA,
+#      anchor=NA)
 
 ## -----------------------------------------------------------------------------
 #Include a single labelled variable to show how the values of that variable correspond to its value labels.
