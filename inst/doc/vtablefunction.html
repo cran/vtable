@@ -12,7 +12,7 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2020-10-12" />
+<meta name="date" content="2021-02-28" />
 
 <title>Variable Table (vtable)</title>
 
@@ -29,9 +29,249 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -118,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
+
 
 
 
@@ -315,7 +556,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Variable Table (vtable)</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2020-10-12</h4>
+<h4 class="date">2021-02-28</h4>
 
 
 
@@ -441,7 +682,7 @@ Num: 0.22 to 16.71
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">data</span>(efc)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co">#Don&#39;t forget the handy shortcut vt()!</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">vt</span>(efc)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
 </caption>
@@ -911,7 +1152,7 @@ Care level
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    <span class="st">&#39;numeric real per-capita disposable income&#39;</span>,</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    <span class="st">&#39;numeric % growth rate of dpi&#39;</span>)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1006,7 +1247,7 @@ Num: 0.22 to 16.71
 </table>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>labs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="ot">NA</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1113,7 +1354,7 @@ Num: 0.22 to 16.71
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>))</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="kw">vt</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1219,7 +1460,7 @@ Num: 0.22 to 16.71
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    <span class="dt">pop15 =</span> <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    <span class="dt">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">labels=</span>labs)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1324,7 +1565,7 @@ Num: 0.22 to 16.71
 <p>If the variable is numeric but has value labels applied by the <code>sjlabelled</code> package, <code>vtable()</code> will find them and report the numeric-label crosswalk.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">data</span>(LifeCycleSavings)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="kw">vtable</span>(LifeCycleSavings,<span class="dt">values=</span><span class="ot">FALSE</span>)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1382,7 +1623,7 @@ numeric
 </tbody>
 </table>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">vtable</span>(LifeCycleSavings)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
 </caption>
@@ -1460,7 +1701,7 @@ Num: 0.22 to 16.71
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">#CO2 contains factor variables</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="kw">data</span>(CO2)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="kw">vtable</span>(CO2)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 CO2
 </caption>
@@ -1541,7 +1782,7 @@ Num: 7.7 to 45.5
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="kw">library</span>(sjlabelled)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="kw">data</span>(efc)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="kw">vtable</span>(efc)</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
 </caption>
@@ -2012,7 +2253,7 @@ Care level
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="kw">data</span>(efc)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a><span class="kw">vtable</span>(efc,<span class="dt">summ=</span><span class="kw">c</span>(<span class="st">&#39;mean(x)&#39;</span>,<span class="st">&#39;countNA(x)&#39;</span>))</span></code></pre></div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
 </caption>
