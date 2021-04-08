@@ -11,8 +11,15 @@ pc[c(25,50,75)]
 #Inverse normal CDF with 100 points of articulation
 plot(pc)
 
+## -----------------------------------------------------------------------------
+x <- 1:100
+w <- 1:100
+weighted.mean(x, w)
+sd(x)
+weighted.sd(x, w)
+
 ## ---- eval = FALSE------------------------------------------------------------
-#  independence.test(x,y,
+#  independence.test(x,y,w=NA,
 #                    factor.test = NA,
 #                    numeric.test = NA,
 #                    star.cutoffs = c(.01,.05,.1),
