@@ -12,7 +12,7 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2021-04-08" />
+<meta name="date" content="2021-05-28" />
 
 <title>labeltable: Label Table</title>
 
@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">labeltable: Label Table</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2021-04-08</h4>
+<h4 class="date">2021-05-28</h4>
 
 
 
@@ -168,10 +168,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Include a single labelled variable to show how the values of that variable correspond to its value labels.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span></code></pre></div>
 <pre><code>## Loading required package: kableExtra</code></pre>
-<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.0.5</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(efc<span class="sc">$</span>e15relat)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(efc<span class="sc">$</span>e15relat)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -250,9 +249,9 @@ other, specify
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Include more than one variable to show, for each value of the first, what values of the others are present in the data.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(mtcars<span class="sc">$</span>cyl,mtcars<span class="sc">$</span>carb,mtcars<span class="sc">$</span>am)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Include more than one variable to show, for each value of the first, what values of the others are present in the data.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(mtcars<span class="sc">$</span>cyl,mtcars<span class="sc">$</span>carb,mtcars<span class="sc">$</span>am)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -357,10 +356,10 @@ am
 <div id="file" class="section level2">
 <h2><code>file</code></h2>
 <p>The <code>file</code> argument will write the variable documentation file to an HTML file and save it. Will automatically append ‘html’ filetype if the filename does not include a period.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(efc<span class="sc">$</span>e15relat,<span class="at">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labeltable</span>(efc<span class="sc">$</span>e15relat,<span class="at">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
 </div>
 <div id="desc-note-and-anchor." class="section level2">
 <h2><code>desc</code>, <code>note</code>, and <code>anchor</code>.</h2>
