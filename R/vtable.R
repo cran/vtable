@@ -286,10 +286,10 @@ vtable <- function(data,out=NA,file=NA,labels=NA,class=TRUE,values=TRUE,missing=
     data[,sapply(data,function(x) (length(class(x)) >1) & (is.factor(x)))] <-
       as.data.frame(sapply(data[,sapply(data,function(x) (length(class(x)) >1) & (is.factor(x)))],function(x) factor(x,ordered=FALSE)), stringsAsFactors = TRUE)
   }
-  #Similarly, only take one class if it's numeric.
-  if (sum(sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)))) > 0) {
-    data[,sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)))] <-
-      as.data.frame(sapply(data[,sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)))],function(x) as.numeric(haven::zap_labels(x))))
+  #Similarly, only take one class if it's numeric, UNLESS it's haven_labelled.
+  if (sum(sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)) & !('haven_labelled' %in% class(x)))) > 0) {
+    data[,sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)) & !('haven_labelled' %in% class(x)))] <-
+      as.data.frame(sapply(data[,sapply(data,function(x) (length(class(x)) >1) & (is.numeric(x)) & !('haven_labelled' %in% class(x)))],function(x) as.numeric(haven::zap_labels(x))))
   }
 
   ####### APPLICATION OF VALUES OPTION
@@ -297,7 +297,7 @@ vtable <- function(data,out=NA,file=NA,labels=NA,class=TRUE,values=TRUE,missing=
   if (values == TRUE) {
 
     ####### APPLICATION OF CHAR.VALUES OPTION
-    if (class(char.values) == 'logical') {
+    if (inherits(char.values,'logical')) {
       if (char.values == TRUE) {
         #See which are characters
         charvariables <- as.logical(unlist(sapply(data,function(x) max(class(x) == "character"))))
@@ -306,7 +306,7 @@ vtable <- function(data,out=NA,file=NA,labels=NA,class=TRUE,values=TRUE,missing=
         #clean
         rm(charvariables)
       }
-    } else if (class(char.values) == 'character') {
+    } else if (inherits(char.values,'character')) {
       #See which variables are in the list
       charvariables <- names(data) %in% char.values
       #and convert
@@ -506,7 +506,12 @@ vtable <- function(data,out=NA,file=NA,labels=NA,class=TRUE,values=TRUE,missing=
                 data),function(x) x[!is.na(x)]),
               #4. within each of those variables, paste together a bunch of summary stats
               # Send to parsesumm so as to handle different cases
-              function(x) parsesumm(x,summuse,summnames)),sep='')
+              # If it's a date, and summnames was set by lush = TRUE, use median and nuniq
+              function(x) if (lush == TRUE & max(class(x) %in% c('Date','POSIXct','POSIXt','POSIXlt')) == 1) {
+                parsesumm(x, c('median(x)','nuniq(x)'), c('median: ', 'nuniq: '))
+              } else {
+                parsesumm(x,summuse,summnames)
+              }),sep='')
   }
 
   ####### APPLICATION OF COL.WIDTH OPTION

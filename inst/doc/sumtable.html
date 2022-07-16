@@ -12,13 +12,247 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2021-08-05" />
+<meta name="date" content="2022-07-14" />
 
 <title>sumtable: Summary Statistics</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
-<script src="data:application/javascript;base64,JChkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24oKXsKICAgIGlmICh0eXBlb2YgJCgnW2RhdGEtdG9nZ2xlPSJ0b29sdGlwIl0nKS50b29sdGlwID09PSAnZnVuY3Rpb24nKSB7CiAgICAgICAgJCgnW2RhdGEtdG9nZ2xlPSJ0b29sdGlwIl0nKS50b29sdGlwKCk7CiAgICB9CiAgICBpZiAoJCgnW2RhdGEtdG9nZ2xlPSJwb3BvdmVyIl0nKS5wb3BvdmVyID09PSAnZnVuY3Rpb24nKSB7CiAgICAgICAgJCgnW2RhdGEtdG9nZ2xlPSJwb3BvdmVyIl0nKS5wb3BvdmVyKCk7CiAgICB9Cn0pOwo="></script>
-<link href="data:text/css,%0A%2Elightable%2Dminimal%20%7B%0Aborder%2Dcollapse%3A%20separate%3B%0Aborder%2Dspacing%3A%2016px%201px%3B%0Awidth%3A%20100%25%3B%0Amargin%2Dbottom%3A%2010px%3B%0A%7D%0A%2Elightable%2Dminimal%20td%20%7B%0Amargin%2Dleft%3A%205px%3B%0Amargin%2Dright%3A%205px%3B%0A%7D%0A%2Elightable%2Dminimal%20th%20%7B%0Amargin%2Dleft%3A%205px%3B%0Amargin%2Dright%3A%205px%3B%0A%7D%0A%2Elightable%2Dminimal%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%2300000050%3B%0Aempty%2Dcells%3A%20hide%3B%0A%7D%0A%2Elightable%2Dminimal%20tbody%20tr%3Afirst%2Dchild%20td%20%7B%0Apadding%2Dtop%3A%200%2E5em%3B%0A%7D%0A%2Elightable%2Dminimal%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dminimal%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dclassic%20%7B%0Aborder%2Dtop%3A%200%2E16em%20solid%20%23111111%3B%0Aborder%2Dbottom%3A%200%2E16em%20solid%20%23111111%3B%0Awidth%3A%20100%25%3B%0Amargin%2Dbottom%3A%2010px%3B%0Amargin%3A%2010px%205px%3B%0A%7D%0A%2Elightable%2Dclassic%20tfoot%20tr%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dclassic%20tfoot%20tr%3Afirst%2Dchild%20td%20%7B%0Aborder%2Dtop%3A%200%2E14em%20solid%20%23111111%3B%0A%7D%0A%2Elightable%2Dclassic%20caption%20%7B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%20td%20%7B%0Apadding%2Dleft%3A%205px%3B%0Apadding%2Dright%3A%205px%3B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%20th%20%7B%0Apadding%2Dleft%3A%205px%3B%0Apadding%2Dright%3A%205px%3B%0Afont%2Dweight%3A%20normal%3B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Aborder%2Dbottom%3A%200%2E10em%20solid%20%23111111%3B%0A%7D%0A%2Elightable%2Dclassic%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23F9EEC1%3B%0A%7D%0A%2Elightable%2Dclassic%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20%7B%0Aborder%2Dtop%3A%203px%20double%20%23111111%3B%0Aborder%2Dbottom%3A%203px%20double%20%23111111%3B%0Awidth%3A%20100%25%3B%0Amargin%2Dbottom%3A%2010px%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20tfoot%20tr%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20tfoot%20tr%3Afirst%2Dchild%20td%20%7B%0Aborder%2Dtop%3A%203px%20double%20%23111111%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20caption%20%7B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20td%20%7B%0Apadding%2Dleft%3A%205px%3B%0Apadding%2Dright%3A%205px%3B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20th%20%7B%0Apadding%2Dleft%3A%205px%3B%0Apadding%2Dright%3A%205px%3B%0Afont%2Dweight%3A%20normal%3B%0Acolor%3A%20%23222222%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20tbody%20tr%3Alast%2Dchild%20td%20%7B%0Aborder%2Dbottom%3A%203px%20double%20%23111111%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23111111%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23F9EEC1%3B%0A%7D%0A%2Elightable%2Dclassic%2D2%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dmaterial%20%7B%0Amin%2Dwidth%3A%20100%25%3B%0Awhite%2Dspace%3A%20nowrap%3B%0Atable%2Dlayout%3A%20fixed%3B%0Afont%2Dfamily%3A%20Roboto%2C%20sans%2Dserif%3B%0Aborder%3A%201px%20solid%20%23EEE%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0Amargin%2Dbottom%3A%2010px%3B%0A%7D%0A%2Elightable%2Dmaterial%20tfoot%20tr%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dmaterial%20tfoot%20tr%3Afirst%2Dchild%20td%20%7B%0Aborder%2Dtop%3A%201px%20solid%20%23EEE%3B%0A%7D%0A%2Elightable%2Dmaterial%20th%20%7B%0Aheight%3A%2056px%3B%0Apadding%2Dleft%3A%2016px%3B%0Apadding%2Dright%3A%2016px%3B%0A%7D%0A%2Elightable%2Dmaterial%20td%20%7B%0Aheight%3A%2052px%3B%0Apadding%2Dleft%3A%2016px%3B%0Apadding%2Dright%3A%2016px%3B%0Aborder%2Dtop%3A%201px%20solid%20%23eeeeee%3B%0A%7D%0A%2Elightable%2Dmaterial%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dmaterial%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%23f5f5f5%3B%0A%7D%0A%2Elightable%2Dmaterial%2Elightable%2Dstriped%20tbody%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dmaterial%2Elightable%2Dstriped%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ddd%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%20%7B%0Amin%2Dwidth%3A%20100%25%3B%0Awhite%2Dspace%3A%20nowrap%3B%0Atable%2Dlayout%3A%20fixed%3B%0Afont%2Dfamily%3A%20Roboto%2C%20sans%2Dserif%3B%0Aborder%3A%201px%20solid%20%23FFFFFF12%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0Amargin%2Dbottom%3A%2010px%3B%0Abackground%2Dcolor%3A%20%23363640%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%20tfoot%20tr%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%20tfoot%20tr%3Afirst%2Dchild%20td%20%7B%0Aborder%2Dtop%3A%201px%20solid%20%23FFFFFF12%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%20th%20%7B%0Aheight%3A%2056px%3B%0Apadding%2Dleft%3A%2016px%3B%0Apadding%2Dright%3A%2016px%3B%0Acolor%3A%20%23FFFFFF60%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%20td%20%7B%0Aheight%3A%2052px%3B%0Apadding%2Dleft%3A%2016px%3B%0Apadding%2Dright%3A%2016px%3B%0Acolor%3A%20%23FFFFFF%3B%0Aborder%2Dtop%3A%201px%20solid%20%23FFFFFF12%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF12%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF12%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%2Elightable%2Dstriped%20tbody%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dmaterial%2Ddark%2Elightable%2Dstriped%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23FFFFFF12%3B%0A%7D%0A%2Elightable%2Dpaper%20%7B%0Awidth%3A%20100%25%3B%0Amargin%2Dbottom%3A%2010px%3B%0Acolor%3A%20%23444%3B%0A%7D%0A%2Elightable%2Dpaper%20tfoot%20tr%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A%2Elightable%2Dpaper%20tfoot%20tr%3Afirst%2Dchild%20td%20%7B%0Aborder%2Dtop%3A%201px%20solid%20%2300000020%3B%0A%7D%0A%2Elightable%2Dpaper%20thead%20tr%3Alast%2Dchild%20th%20%7B%0Acolor%3A%20%23666%3B%0Avertical%2Dalign%3A%20bottom%3B%0Aborder%2Dbottom%3A%201px%20solid%20%2300000020%3B%0Aline%2Dheight%3A%201%2E15em%3B%0Apadding%3A%2010px%205px%3B%0A%7D%0A%2Elightable%2Dpaper%20td%20%7B%0Avertical%2Dalign%3A%20middle%3B%0Aborder%2Dbottom%3A%201px%20solid%20%2300000010%3B%0Aline%2Dheight%3A%201%2E15em%3B%0Apadding%3A%207px%205px%3B%0A%7D%0A%2Elightable%2Dpaper%2Elightable%2Dhover%20tbody%20tr%3Ahover%20%7B%0Abackground%2Dcolor%3A%20%23F9EEC1%3B%0A%7D%0A%2Elightable%2Dpaper%2Elightable%2Dstriped%20tbody%20tr%3Anth%2Dchild%28even%29%20%7B%0Abackground%2Dcolor%3A%20%2300000008%3B%0A%7D%0A%2Elightable%2Dpaper%2Elightable%2Dstriped%20tbody%20td%20%7B%0Aborder%3A%200%3B%0A%7D%0A" rel="stylesheet" />
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -28,6 +262,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -129,7 +364,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -143,19 +558,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">sumtable: Summary Statistics</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2021-08-05</h4>
+<h4 class="date">2022-07-14</h4>
 
 
 
-<p>The <code>vtable</code> package serves the purpose of outputting automatic variable documentation that can be easily viewed while continuing to work with data.</p>
-<p><code>vtable</code> contains four main functions: <code>vtable()</code> (or <code>vt()</code>), <code>sumtable()</code> (or <code>st()</code>), <code>labeltable()</code>, and <code>dftoHTML()</code>/<code>dftoLaTeX()</code>. This vignette focuses on <code>sumtable()</code>.</p>
-<p><code>sumtable()</code> takes a dataset and outputs a formatted summary statistics table. Summary statistics an be for the whole data set at once or by-group.</p>
-<p>There are a huge number of R packages that will make a summary statistics table for you. What does <code>vtable::sumtable()</code> bring that isn’t already there?</p>
-<p>First, like other <code>vtable</code> functions, <code>sumtable()</code> by default prints its results to Viewer (in RStudio) or the browser (elsewhere), making it easy to look at information about your data while continuing to work on it.</p>
-<p>Second, <code>sumtable()</code> is designed to <em>have nice defaults</em> and be <em>fast to work with</em>. By fast to work with that’s both in the sense that you should just be able to ask for a sumtable and have it pretty much be what you want immediately, and also in the sense of trying to keep the number of keystrokes low (thus the <code>st()</code> shortcut, and the intent of not having to set a bunch of options).</p>
-<p><code>sumtable()</code> has customization options, but they’re certainly not as extensive as with a package like <code>gtsummary</code> or <code>arsenal</code>. Nor should they be! If you want full control over your table, those packages are already great, we don’t need another package that does that.</p>
-<p>However, if you want the kind of table <code>sumtable()</code> produces (and I think a lot of you do!) then it’s perfect and easy. This makes <code>sumtable()</code> very similar in spirit to the summary statistics functionality of <code>stargazer::stargazer()</code>, except with some additional important bonuses, like working with <code>tibble</code>s, factor variables, producing summary statistics by group, and being a summary-statistics-only function so the documentation isn’t entwined with a bunch of regression-table functionality.</p>
-<p>Like, look at this. Isn’t this what you basically already want? After loading the package this took eight keystrokes and no option-setting:</p>
+<p>The <code>vtable</code> package serves the purpose of outputting
+automatic variable documentation that can be easily viewed while
+continuing to work with data.</p>
+<p><code>vtable</code> contains four main functions:
+<code>vtable()</code> (or <code>vt()</code>), <code>sumtable()</code>
+(or <code>st()</code>), <code>labeltable()</code>, and
+<code>dftoHTML()</code>/<code>dftoLaTeX()</code>. This vignette focuses
+on <code>sumtable()</code>.</p>
+<p><code>sumtable()</code> takes a dataset and outputs a formatted
+summary statistics table. Summary statistics an be for the whole data
+set at once or by-group.</p>
+<p>There are a huge number of R packages that will make a summary
+statistics table for you. What does <code>vtable::sumtable()</code>
+bring that isn’t already there?</p>
+<p>First, like other <code>vtable</code> functions,
+<code>sumtable()</code> by default prints its results to Viewer (in
+RStudio) or the browser (elsewhere), making it easy to look at
+information about your data while continuing to work on it.</p>
+<p>Second, <code>sumtable()</code> is designed to <em>have nice
+defaults</em> and be <em>fast to work with</em>. By fast to work with
+that’s both in the sense that you should just be able to ask for a
+sumtable and have it pretty much be what you want immediately, and also
+in the sense of trying to keep the number of keystrokes low (thus the
+<code>st()</code> shortcut, and the intent of not having to set a bunch
+of options).</p>
+<p><code>sumtable()</code> has customization options, but they’re
+certainly not as extensive as with a package like <code>gtsummary</code>
+or <code>arsenal</code>. Nor should they be! If you want full control
+over your table, those packages are already great, we don’t need another
+package that does that.</p>
+<p>However, if you want the kind of table <code>sumtable()</code>
+produces (and I think a lot of you do!) then it’s perfect and easy. This
+makes <code>sumtable()</code> very similar in spirit to the summary
+statistics functionality of <code>stargazer::stargazer()</code>, except
+with some additional important bonuses, like working with
+<code>tibble</code>s, factor variables, producing summary statistics by
+group, and being a summary-statistics-only function so the documentation
+isn’t entwined with a bunch of regression-table functionality.</p>
+<p>Like, look at this. Isn’t this what you basically already want? After
+loading the package this took eight keystrokes and no
+option-setting:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(iris)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -383,7 +830,8 @@ Species
 <hr />
 <div id="the-sumtable-function" class="section level1">
 <h1>The <code>sumtable()</code> function</h1>
-<p><code>sumtable()</code> (or <code>st()</code> for short) syntax follows the following outline:</p>
+<p><code>sumtable()</code> (or <code>st()</code> for short) syntax
+follows the following outline:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sumtable</span>(data,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">vars=</span><span class="cn">NA</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">out=</span><span class="cn">NA</span>,</span>
@@ -414,18 +862,41 @@ Species
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">fit.page=</span><span class="cn">NA</span>,</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">simple.kable=</span><span class="cn">FALSE</span>,</span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">opts=</span><span class="fu">list</span>())</span></code></pre></div>
-<p>The goal of <code>sumtable()</code> is to take a data set <code>data</code> and output a usually-HTML (but <code>data.frame</code>, <code>kable</code>, <code>csv</code>, and <code>latex</code> options are there too) file with summary statistics for each of the variables in <code>data</code>. There are several options as to how the table will be constructed, and each of these options are explained below. Throughout, the output will be built as <code>kable</code>s since this is an RMarkdown document. However, generally you can leave <code>out</code> at its default and it will publish an HTML table to Viewer (in RStudio) or the browser (otherwise). This will also include some additional information about your data that can’t be demonstrated in this vignette:</p>
+<p>The goal of <code>sumtable()</code> is to take a data set
+<code>data</code> and output a usually-HTML (but
+<code>data.frame</code>, <code>kable</code>, <code>csv</code>, and
+<code>latex</code> options are there too) file with summary statistics
+for each of the variables in <code>data</code>. There are several
+options as to how the table will be constructed, and each of these
+options are explained below. Throughout, the output will be built as
+<code>kable</code>s since this is an RMarkdown document. However,
+generally you can leave <code>out</code> at its default and it will
+publish an HTML table to Viewer (in RStudio) or the browser (otherwise).
+This will also include some additional information about your data that
+can’t be demonstrated in this vignette:</p>
 <div id="data-and-vars" class="section level2">
 <h2><code>data</code> and <code>vars</code></h2>
-<p>The <code>data</code> argument can take any <code>data.frame</code>, <code>data.table</code>, <code>tibble</code>, or <code>matrix</code>, as long as it has a valid set of variable names stored in the <code>colnames()</code> attribute.</p>
-<p>By default, <code>sumtable</code> will include in the summary statistics table every variable in the data set that is (1) numeric, (2) factor, (3) logical, or (4) a character variable with six or fewer unique values (as a factor), and it will include them in the order they’re in the data.</p>
-<p>You can override that variable list with <code>vars</code>, which is just a vector of variable names to include. You can use this to force <code>sumtable</code> to ignore variables you don’t want, or to include variables it doesn’t by default.</p>
+<p>The <code>data</code> argument can take any <code>data.frame</code>,
+<code>data.table</code>, <code>tibble</code>, or <code>matrix</code>, as
+long as it has a valid set of variable names stored in the
+<code>colnames()</code> attribute.</p>
+<p>By default, <code>sumtable</code> will include in the summary
+statistics table every variable in the data set that is (1) numeric, (2)
+factor, (3) logical, or (4) a character variable with six or fewer
+unique values (as a factor), and it will include them in the order
+they’re in the data.</p>
+<p>You can override that variable list with <code>vars</code>, which is
+just a vector of variable names to include. You can use this to force
+<code>sumtable</code> to ignore variables you don’t want, or to include
+variables it doesn’t by default.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(LifeCycleSavings, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&#39;pop15&#39;</span>,<span class="st">&#39;pop75&#39;</span>))</span></code></pre></div>
 </div>
 <div id="out" class="section level2">
 <h2><code>out</code></h2>
-<p>The <code>out</code> option determines what will be done with the resulting summary statistics table. There are several options for <code>out</code>:</p>
+<p>The <code>out</code> option determines what will be done with the
+resulting summary statistics table. There are several options for
+<code>out</code>:</p>
 <table>
 <colgroup>
 <col width="22%" />
@@ -452,11 +923,13 @@ Species
 </tr>
 <tr class="even">
 <td>return</td>
-<td>Returns summary table in data frame format. Depending on options, the data frame may be entirely character variables.</td>
+<td>Returns summary table in data frame format. Depending on options,
+the data frame may be entirely character variables.</td>
 </tr>
 <tr class="odd">
 <td>csv</td>
-<td>Returns summary table in data.frame format and, with a <code>file</code> option, saves that to CSV.</td>
+<td>Returns summary table in data.frame format and, with a
+<code>file</code> option, saves that to CSV.</td>
 </tr>
 <tr class="even">
 <td>kable</td>
@@ -472,7 +945,9 @@ Species
 </tr>
 </tbody>
 </table>
-<p>By default, <code>sumtable</code> will select ‘viewer’ if running in RStudio, and ‘browser’ otherwise. If it’s being built in an RMarkdown document with <code>knitr</code>, it will default to ‘kable’.</p>
+<p>By default, <code>sumtable</code> will select ‘viewer’ if running in
+RStudio, and ‘browser’ otherwise. If it’s being built in an RMarkdown
+document with <code>knitr</code>, it will default to ‘kable’.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumtable</span>(LifeCycleSavings)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>vartable <span class="ot">&lt;-</span> <span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;return&#39;</span>)</span>
@@ -482,18 +957,51 @@ Species
 </div>
 <div id="file" class="section level2">
 <h2><code>file</code></h2>
-<p>The <code>file</code> argument will write the variable documentation file to an HTML or LaTeX file and save it. Will automatically append ‘html’ or ‘tex’ filetype if the filename does not include a period.</p>
+<p>The <code>file</code> argument will write the variable documentation
+file to an HTML or LaTeX file and save it. Will automatically append
+‘html’ or ‘tex’ filetype if the filename does not include a period.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycle_summary&#39;</span>)</span></code></pre></div>
 </div>
 <div id="summ-and-summ.names" class="section level2">
 <h2><code>summ</code> and <code>summ.names</code></h2>
-<p><code>summ</code> is the set of summary statistics functions to run and include in the table. It is very flexible, hopefully without being difficult to use.</p>
-<p>It takes a character vector in which each element is of the form <code>function(x)</code>, where <code>function(x)</code> is any function that takes a vector and returns a single numeric value. For example, <code>summ=c(&#39;mean(x)&#39;,&#39;median(x)&#39;,&#39;mean(log(x))&#39;)</code> would calculate the mean, median, and mean of the log for each variable. <code>summ.names</code> is just the heading-title of the corresponding <code>summ</code>. So in this example that might be <code>summ.names=c(&#39;Mean&#39;,&#39;Median&#39;,&#39;Mean of Log&#39;)</code>.</p>
-<p>Factor variables largely ignore <code>summ</code> (unless <code>factor.numeric = TRUE</code>) and will just report counts in the first column and means/percentages in the second. You may want to consider this when selecting the order you put your <code>summ</code> in if you have both factor and numeric variables.</p>
-<p><code>summ</code> treats as special two <code>vtable</code> functions: <code>propNA(x)</code> and <code>countNA(x)</code>, which give the proportion and count of NA values, and the count of non-NA values in the variable, respectively. These two functions are the only functions that include NA values in their calculations.</p>
-<p>By default, <code>summ</code> is <code>c(&#39;notNA(x)&#39;, &#39;mean(x)&#39;,   &#39;sd(x)&#39;, &#39;min(x)&#39;, &#39;pctile(x)[25]&#39;, &#39;pctile(x)[75]&#39;, &#39;max(x)&#39;)</code> in ‘one-column’ tables. If there’s more than one column either due to the <code>col.breaks</code> option or the <code>group</code> option, it defaults to <code>c(&#39;notNA(x)&#39;, &#39;mean(x)&#39;, &#39;sd(x)&#39;)</code>. Alternately, if a given column of variables is entirely made up of factor variables, it defaults to <code>c(&#39;sum(x)&#39;,&#39;mean(x)&#39;)</code>. These precise defaults have corresponding default <code>summ.names</code>. If you set your own <code>summ</code> but not <code>summ.names</code>, it will try to guess the name by taking your function, removing <code>(x)</code>, and capitalizing. so ‘mean(x)’ becomes ‘Mean’.</p>
-<p>If you want to get complex you can. If there are multiple ‘columns’ of summary statistics and you want different statistics in each column, make <code>summ</code> and <code>summ.names</code> into a list, where each entry is a character vector of the calculations/names you want in that column.</p>
+<p><code>summ</code> is the set of summary statistics functions to run
+and include in the table. It is very flexible, hopefully without being
+difficult to use.</p>
+<p>It takes a character vector in which each element is of the form
+<code>function(x)</code>, where <code>function(x)</code> is any function
+that takes a vector and returns a single numeric value. For example,
+<code>summ=c(&#39;mean(x)&#39;,&#39;median(x)&#39;,&#39;mean(log(x))&#39;)</code> would
+calculate the mean, median, and mean of the log for each variable.
+<code>summ.names</code> is just the heading-title of the corresponding
+<code>summ</code>. So in this example that might be
+<code>summ.names=c(&#39;Mean&#39;,&#39;Median&#39;,&#39;Mean of Log&#39;)</code>.</p>
+<p>Factor variables largely ignore <code>summ</code> (unless
+<code>factor.numeric = TRUE</code>) and will just report counts in the
+first column and means/percentages in the second. You may want to
+consider this when selecting the order you put your <code>summ</code> in
+if you have both factor and numeric variables.</p>
+<p><code>summ</code> treats as special two <code>vtable</code>
+functions: <code>propNA(x)</code> and <code>countNA(x)</code>, which
+give the proportion and count of NA values, and the count of non-NA
+values in the variable, respectively. These two functions are the only
+functions that include NA values in their calculations.</p>
+<p>By default, <code>summ</code> is
+<code>c(&#39;notNA(x)&#39;, &#39;mean(x)&#39;,   &#39;sd(x)&#39;, &#39;min(x)&#39;, &#39;pctile(x)[25]&#39;, &#39;pctile(x)[75]&#39;, &#39;max(x)&#39;)</code>
+in ‘one-column’ tables. If there’s more than one column either due to
+the <code>col.breaks</code> option or the <code>group</code> option, it
+defaults to <code>c(&#39;notNA(x)&#39;, &#39;mean(x)&#39;, &#39;sd(x)&#39;)</code>. Alternately,
+if a given column of variables is entirely made up of factor variables,
+it defaults to <code>c(&#39;sum(x)&#39;,&#39;mean(x)&#39;)</code>. These precise
+defaults have corresponding default <code>summ.names</code>. If you set
+your own <code>summ</code> but not <code>summ.names</code>, it will try
+to guess the name by taking your function, removing <code>(x)</code>,
+and capitalizing. so ‘mean(x)’ becomes ‘Mean’.</p>
+<p>If you want to get complex you can. If there are multiple ‘columns’
+of summary statistics and you want different statistics in each column,
+make <code>summ</code> and <code>summ.names</code> into a list, where
+each entry is a character vector of the calculations/names you want in
+that column.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sumtable</span>(iris,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">summ=</span><span class="fu">c</span>(<span class="st">&#39;notNA(x)&#39;</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;mean(x)&#39;</span>,</span>
@@ -817,12 +1325,42 @@ Petal.Width
 </table>
 </div>
 <div id="group-group.long-and-group.test" class="section level2">
-<h2><code>group</code>, <code>group.long</code>, and <code>group.test</code></h2>
-<p><code>sumtable()</code> allows for the calculation of summary statistics by group.</p>
-<p><code>group</code> is a character variable containing the column name in <code>data</code> that you want to calculate summary statistics separately for. At the moment this supports only a single variable, although you can combine multiple variables into a single one yourself before using <code>sumtable</code>.</p>
-<p><code>group.long</code> is a flag for whether you want the different group summary statistics stacked side-by-side (<code>group.long = FALSE</code>), making for easier comparisons, or on top of each other (<code>group.long = TRUE</code>), giving things a bit more room to breathe and allowing space for more statistics. Defaults to <code>FALSE</code>.</p>
-<p><code>group.test</code>, which is only compatible with <code>group.long = FALSE</code>, performs a test of independence between the variable in <code>group</code> and each of the variables in your summary statistics table. Defaults to <code>FALSE</code>. Default <code>group.test = TRUE</code> behavior is to perform a group F-test (with <code>anova(lm())</code>) for numeric variables, and a chi-squared test (with <code>chisq.test</code>) for factor, logical, and character variables, returning results in the format ‘Test statistic name = Test statistic^significance stars’. If you want to change any of that, instead of <code>group.test = TRUE</code>, set <code>group.test</code> equal to a named list of options that will be send to the <code>opts</code> argument of <code>independence.test</code>. See <code>help(independence.test)</code>.</p>
-<p>Be aware that the table produced with <code>group</code> uses multi-column cells. So it will not look quite as nice when outputting to a format that does not support multi-column cells, like <code>out=&#39;return&#39;</code>. Multi-column cells are supported in <code>out=&#39;kable&#39;</code> for <code>group</code>, as below, but are not supported on other rows of the <code>kable</code>. Multi-column cells are supported for <code>out=&#39;kable&#39;</code> only for HTML and LaTeX output.</p>
+<h2><code>group</code>, <code>group.long</code>, and
+<code>group.test</code></h2>
+<p><code>sumtable()</code> allows for the calculation of summary
+statistics by group.</p>
+<p><code>group</code> is a character variable containing the column name
+in <code>data</code> that you want to calculate summary statistics
+separately for. At the moment this supports only a single variable,
+although you can combine multiple variables into a single one yourself
+before using <code>sumtable</code>.</p>
+<p><code>group.long</code> is a flag for whether you want the different
+group summary statistics stacked side-by-side
+(<code>group.long = FALSE</code>), making for easier comparisons, or on
+top of each other (<code>group.long = TRUE</code>), giving things a bit
+more room to breathe and allowing space for more statistics. Defaults to
+<code>FALSE</code>.</p>
+<p><code>group.test</code>, which is only compatible with
+<code>group.long = FALSE</code>, performs a test of independence between
+the variable in <code>group</code> and each of the variables in your
+summary statistics table. Defaults to <code>FALSE</code>. Default
+<code>group.test = TRUE</code> behavior is to perform a group F-test
+(with <code>anova(lm())</code>) for numeric variables, and a chi-squared
+test (with <code>chisq.test</code>) for factor, logical, and character
+variables, returning results in the format ‘Test statistic name = Test
+statistic^significance stars’. If you want to change any of that,
+instead of <code>group.test = TRUE</code>, set <code>group.test</code>
+equal to a named list of options that will be send to the
+<code>opts</code> argument of <code>independence.test</code>. See
+<code>help(independence.test)</code>.</p>
+<p>Be aware that the table produced with <code>group</code> uses
+multi-column cells. So it will not look quite as nice when outputting to
+a format that does not support multi-column cells, like
+<code>out=&#39;return&#39;</code>. Multi-column cells are supported in
+<code>out=&#39;kable&#39;</code> for <code>group</code>, as below, but are not
+supported on other rows of the <code>kable</code>. Multi-column cells
+are supported for <code>out=&#39;kable&#39;</code> only for HTML and LaTeX
+output.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(iris, <span class="at">group =</span> <span class="st">&#39;Species&#39;</span>, <span class="at">group.test =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -1034,7 +1572,8 @@ F=960.007<sup>***</sup>
 <tfoot>
 <tr>
 <td style="padding: 0; border:0;" colspan="100%">
-<sup></sup> Statistical significance markers: * p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01
+<sup></sup> Statistical significance markers: * p&lt;0.1; ** p&lt;0.05;
+*** p&lt;0.01
 </td>
 </tr>
 </tfoot>
@@ -1447,14 +1986,41 @@ Petal.Width
 </div>
 <div id="group.weights" class="section level2">
 <h2><code>group.weights</code></h2>
-<p>This allows you to pass a set of weights for your data (as a vector or as a string column name). <strong>HOWEVER,</strong> it does not automatically weight all the results. If you leave <code>summ</code> as its default, then it will use <code>weighted.mean(x, w = wts)</code> and <code>weighted.sd(x, w = wts)</code> in place of wherever it would normally have <code>mean(x)</code> and <code>sd(x)</code>. Factor proportions are calculated using <code>mean(x)</code>, so this is covered. Weights will also be passed to <code>independence.test()</code> if <code>group.test = TRUE</code>, and so tests of independence across groups will be weighted as well.</p>
-<p><strong>No other calculations will be automatically weighted.</strong> This is really designed to be used with <code>group</code> and <code>group.test = TRUE</code> to create weighted balance tables, which is why it’s called <code>group.weights</code> (and to avoid anyone thinking it weights everything, which would be the natural conclusion if it were just called <code>weights</code>).</p>
-<p>If you want to use the weights with other functions, you can. You’ll just need to specify <code>summ</code> yourself. Just pass <code>summ</code> a string describing function that takes weights and refer to <code>wts</code> as the weights, e.g. <code>&#39;weighted.mean(x, w = wts)&#39;</code> for a weighted mean, as above.</p>
+<p>This allows you to pass a set of weights for your data (as a vector
+or as a string column name). <strong>HOWEVER,</strong> it does not
+automatically weight all the results. If you leave <code>summ</code> as
+its default, then it will use <code>weighted.mean(x, w = wts)</code> and
+<code>weighted.sd(x, w = wts)</code> in place of wherever it would
+normally have <code>mean(x)</code> and <code>sd(x)</code>. Factor
+proportions are calculated using <code>mean(x)</code>, so this is
+covered. Weights will also be passed to <code>independence.test()</code>
+if <code>group.test = TRUE</code>, and so tests of independence across
+groups will be weighted as well.</p>
+<p><strong>No other calculations will be automatically
+weighted.</strong> This is really designed to be used with
+<code>group</code> and <code>group.test = TRUE</code> to create weighted
+balance tables, which is why it’s called <code>group.weights</code> (and
+to avoid anyone thinking it weights everything, which would be the
+natural conclusion if it were just called <code>weights</code>).</p>
+<p>If you want to use the weights with other functions, you can. You’ll
+just need to specify <code>summ</code> yourself. Just pass
+<code>summ</code> a string describing function that takes weights and
+refer to <code>wts</code> as the weights,
+e.g. <code>&#39;weighted.mean(x, w = wts)&#39;</code> for a weighted mean, as
+above.</p>
 </div>
 <div id="col.breaks" class="section level2">
 <h2><code>col.breaks</code></h2>
-<p>Sometimes you don’t need all that much information on each variable, but you have a lot of variables and your table gets long! <code>col.breaks</code> will break up the variables in your table into multiple columns, and put them side by side. Also handy if you want to mix numeric and factor variables - put all your factors in a second column to economize on space. Incompatible with <code>group</code> unless <code>group.long = TRUE</code>.</p>
-<p>Set <code>col.breaks</code> to be a numeric vector. <code>sumtable()</code> will start a new column after that many variables have been processed.</p>
+<p>Sometimes you don’t need all that much information on each variable,
+but you have a lot of variables and your table gets long!
+<code>col.breaks</code> will break up the variables in your table into
+multiple columns, and put them side by side. Also handy if you want to
+mix numeric and factor variables - put all your factors in a second
+column to economize on space. Incompatible with <code>group</code>
+unless <code>group.long = TRUE</code>.</p>
+<p>Set <code>col.breaks</code> to be a numeric vector.
+<code>sumtable()</code> will start a new column after that many
+variables have been processed.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s put species in a column by itself</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#There are five variables here, Species is last,</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#so break the column after the first four variables.</span></span>
@@ -1782,7 +2348,9 @@ vs
 </div>
 <div id="digits-and-fixed.digits" class="section level2">
 <h2><code>digits</code> and <code>fixed.digits</code></h2>
-<p><code>digits</code> indicates how many digits after the decimal place should be displayed. <code>fixed.digits</code> determines whether trailing zeros are maintained.</p>
+<p><code>digits</code> indicates how many digits after the decimal place
+should be displayed. <code>fixed.digits</code> determines whether
+trailing zeros are maintained.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(iris, <span class="at">digits =</span> <span class="dv">5</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -2232,11 +2800,26 @@ Species
 </div>
 <div id="factor-logical-and-character-display-options" class="section level2">
 <h2>Factor, Logical, and Character Display Options</h2>
-<p>How should factor, logical, and character variables (all of which get turned into factors in the <code>sumtable</code>-making process) be shown on the <code>sumtable()</code>?</p>
-<p>In all <code>sumtable()s</code>, there is one row for the name of the factor variable, with the number of nonmissing observations of the variable. Then there’s one row for each of the values (for logicals, FALSE and TRUE become ‘No’ and ‘Yes’, or pick your own labels with <code>logical.labels</code>), showing the count and percentage (i.e. 50%) of observations with that value.</p>
-<p>Set <code>factor.percent = FALSE</code> to report the proportion of observations (.5) instead of the percentage (50%) for the values.</p>
-<p>Set <code>factor.counts = FALSE</code> to omit the count for the individual values. So you’ll see the number of nonmissing observations for the variable overall, and then just the percentage/proportion for each of the values.</p>
-<p>Set <code>factor.numeric = TRUE</code> and/or <code>logical.numeric = TRUE</code> to ignore all this special treatment for factor/logical variables (respectively), and just treat each of the values as numeric binary variables. <code>factor.numeric</code> also covers character variables.</p>
+<p>How should factor, logical, and character variables (all of which get
+turned into factors in the <code>sumtable</code>-making process) be
+shown on the <code>sumtable()</code>?</p>
+<p>In all <code>sumtable()s</code>, there is one row for the name of the
+factor variable, with the number of nonmissing observations of the
+variable. Then there’s one row for each of the values (for logicals,
+FALSE and TRUE become ‘No’ and ‘Yes’, or pick your own labels with
+<code>logical.labels</code>), showing the count and percentage
+(i.e. 50%) of observations with that value.</p>
+<p>Set <code>factor.percent = FALSE</code> to report the proportion of
+observations (.5) instead of the percentage (50%) for the values.</p>
+<p>Set <code>factor.counts = FALSE</code> to omit the count for the
+individual values. So you’ll see the number of nonmissing observations
+for the variable overall, and then just the percentage/proportion for
+each of the values.</p>
+<p>Set <code>factor.numeric = TRUE</code> and/or
+<code>logical.numeric = TRUE</code> to ignore all this special treatment
+for factor/logical variables (respectively), and just treat each of the
+values as numeric binary variables. <code>factor.numeric</code> also
+covers character variables.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(iris, <span class="at">factor.percent =</span> <span class="cn">FALSE</span>, <span class="at">factor.counts =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -2697,12 +3280,21 @@ Species
 </div>
 <div id="labels" class="section level2">
 <h2><code>labels</code></h2>
-<p>The <code>labels</code> argument will attach variable labels to the variables in <code>data</code>. If variable labels are embedded in <code>data</code> and those labels are what you want, then set <code>labels = TRUE</code>.</p>
-<p>If you’d like to set your own labels that aren’t embedded in the data, there are three formats available:</p>
+<p>The <code>labels</code> argument will attach variable labels to the
+variables in <code>data</code>. If variable labels are embedded in
+<code>data</code> and those labels are what you want, then set
+<code>labels = TRUE</code>.</p>
+<p>If you’d like to set your own labels that aren’t embedded in the
+data, there are three formats available:</p>
 <div id="labels-as-a-vector" class="section level3">
 <h3><code>labels</code> as a vector</h3>
-<p><code>labels</code> can be set to be a vector of equal length to the number of variables in <code>data</code> (or in <code>vars</code> if that’s set), and in the same order. You can use <code>NA</code>s for padding if you only want labels for some varibles and just want to use the regular variable names for others.</p>
-<p>This option is not recommended if you have set <code>group</code>, as it gets tricky to figure out what order to put the labels in.</p>
+<p><code>labels</code> can be set to be a vector of equal length to the
+number of variables in <code>data</code> (or in <code>vars</code> if
+that’s set), and in the same order. You can use <code>NA</code>s for
+padding if you only want labels for some varibles and just want to use
+the regular variable names for others.</p>
+<p>This option is not recommended if you have set <code>group</code>, as
+it gets tricky to figure out what order to put the labels in.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
@@ -2880,8 +3472,11 @@ numeric % growth rate of dpi
 </div>
 <div id="labels-as-a-two-column-data-set" class="section level3">
 <h3><code>labels</code> as a two-column data set</h3>
-<p><code>labels</code> can be set to a two-column data set (any type will do) where the first column has the variable names, and the second column has the labels. The column names don’t matter.</p>
-<p>This approach does <strong>not</strong> require that every variable name in <code>data</code> has a matching label.</p>
+<p><code>labels</code> can be set to a two-column data set (any type
+will do) where the first column has the variable names, and the second
+column has the labels. The column names don’t matter.</p>
+<p>This approach does <strong>not</strong> require that every variable
+name in <code>data</code> has a matching label.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#with names &#39;sr&#39;, &#39;pop15&#39;, &#39;pop75&#39;, &#39;dpi&#39;, and &#39;ddpi&#39;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nonsensename1 =</span> <span class="fu">c</span>(<span class="st">&#39;sr&#39;</span>, <span class="st">&#39;pop15&#39;</span>, <span class="st">&#39;pop75&#39;</span>),</span>
@@ -3057,8 +3652,14 @@ ddpi
 </div>
 <div id="labels-as-a-one-row-data-set" class="section level3">
 <h3><code>labels</code> as a one-row data set</h3>
-<p><code>labels</code> can be set to a one-row data set in which the column names are the variable names in <code>data</code> and the first row is the variable names. The <code>labels</code> argument can take any data type including data frame, data table, tibble, or matrix, as long as it has a valid set of variable names stored in the <code>colnames()</code> attribute.</p>
-<p>This approach does <strong>not</strong> require that every variable name in <code>data</code> has a matching label.</p>
+<p><code>labels</code> can be set to a one-row data set in which the
+column names are the variable names in <code>data</code> and the first
+row is the variable names. The <code>labels</code> argument can take any
+data type including data frame, data table, tibble, or matrix, as long
+as it has a valid set of variable names stored in the
+<code>colnames()</code> attribute.</p>
+<p>This approach does <strong>not</strong> require that every variable
+name in <code>data</code> has a matching label.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sr =</span> <span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop15 =</span> <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
@@ -3234,13 +3835,26 @@ ddpi
 <h2><code>title</code>, <code>note</code>, and <code>anchor</code></h2>
 <p><code>title</code> will include a title for your table.</p>
 <p><code>note</code> will add a table note in the last row.</p>
-<p><code>anchor</code> will add an anchor ID (<code>&lt;a name =</code> in HTML or <code>\label{}</code> in LaTeX) to allow other parts of your document to link to it, if you are including your <code>sumtable</code> in a larger document.</p>
-<p><code>title</code> will only show up in output formats with titles. That is, you won’t get them with <code>out = &#39;return&#39;</code>. <code>note</code> and <code>anchor</code> will only show up in formats that support multi-column cells and anchoring, so <code>anchor</code> won’t work with <code>out = &#39;kable&#39;</code> and neither will work with <code>out = &#39;return&#39;</code> or <code>out = &#39;csv&#39;</code>.</p>
+<p><code>anchor</code> will add an anchor ID (<code>&lt;a name =</code>
+in HTML or <code>\label{}</code> in LaTeX) to allow other parts of your
+document to link to it, if you are including your <code>sumtable</code>
+in a larger document.</p>
+<p><code>title</code> will only show up in output formats with titles.
+That is, you won’t get them with <code>out = &#39;return&#39;</code>.
+<code>note</code> and <code>anchor</code> will only show up in formats
+that support multi-column cells and anchoring, so <code>anchor</code>
+won’t work with <code>out = &#39;kable&#39;</code> and neither will work with
+<code>out = &#39;return&#39;</code> or <code>out = &#39;csv&#39;</code>.</p>
 </div>
 <div id="col.width" class="section level2">
 <h2><code>col.width</code></h2>
-<p><code>sumtable()</code> will select default column widths by basically just giving the column with the variable name a little more space than the <code>summ</code>-based columns. <code>col.width</code>, as a vector of percentage column widths on the 0-100 scale, will override these defaults.</p>
-<p>Doesn’t apply to <code>out = &#39;kable&#39;</code>, <code>out = &#39;csv&#39;</code>, or <code>out = &#39;return&#39;</code>.</p>
+<p><code>sumtable()</code> will select default column widths by
+basically just giving the column with the variable name a little more
+space than the <code>summ</code>-based columns. <code>col.width</code>,
+as a vector of percentage column widths on the 0-100 scale, will
+override these defaults.</p>
+<p>Doesn’t apply to <code>out = &#39;kable&#39;</code>,
+<code>out = &#39;csv&#39;</code>, or <code>out = &#39;return&#39;</code>.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The variable names in this data set are pretty short, and the value labels are</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#a little cramped, so let&#39;s move that over.</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(LifeCycleSavings,</span>
@@ -3248,23 +3862,48 @@ ddpi
 </div>
 <div id="col.align" class="section level2">
 <h2><code>col.align</code></h2>
-<p><code>col.align</code> can be used to adjust text alignment in HTML output. Set to ‘left’, ‘right’, or ‘center’ to align all columns, or give a vector of column alignments to do each column separately.</p>
-<p>If you want to get tricky, you can add a semicolon afterwards and keep putting in whatever CSS attributes you want. They will be applied to the whole column.</p>
-<p>This option is only for HTML output and will only work with <code>out</code> values of ‘browser’, ‘viewer’, or ‘htmlreturn’.</p>
+<p><code>col.align</code> can be used to adjust text alignment in HTML
+output. Set to ‘left’, ‘right’, or ‘center’ to align all columns, or
+give a vector of column alignments to do each column separately.</p>
+<p>If you want to get tricky, you can add a semicolon afterwards and
+keep putting in whatever CSS attributes you want. They will be applied
+to the whole column.</p>
+<p>This option is only for HTML output and will only work with
+<code>out</code> values of ‘browser’, ‘viewer’, or ‘htmlreturn’.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(LifeCycleSavings,<span class="at">col.align =</span> <span class="st">&#39;right&#39;</span>)</span></code></pre></div>
 </div>
 <div id="align-note.align-and-fit.page" class="section level2">
-<h2><code>align</code>, <code>note.align</code>, and <code>fit.page</code></h2>
-<p>These options are used only with LaTeX output (<code>out</code> is ‘latex’ or ‘latexpage’).</p>
-<p><code>align</code> and <code>note.align</code> are single strings used for alignment. <code>align</code> will be used as column alignment in standard LaTeX syntax, for example ‘lccc’ for the left column left-aligned and the other three centered. <code>note.align</code> is an alignment note specifically for any table notes set with <code>note</code> (or significance stars), which enters as part of a <code>\multicolumn</code> argument. These both accept ‘p{}’ and other LaTeX column types.</p>
-<p>Defaults to left-aligned ‘Variable’ columns and right-aligned everything else. If <code>col.widths</code> is specified, <code>align</code> defaults to ‘p{}’ columns, with widths set by <code>col.width</code>.</p>
-<p><code>fit.page</code> can be used to ensure that the table is a certain width, and will be used as an entry to a <code>\resizebox{}</code>. Set to <code>\\textwidth</code> to set the table to text width, or <code>.9\\textwidth</code> for 90% of the page, and so on, or any recognized width value in LaTeX.</p>
-<p>For all of these, be sure to escape special characters, in particular backslashes.</p>
+<h2><code>align</code>, <code>note.align</code>, and
+<code>fit.page</code></h2>
+<p>These options are used only with LaTeX output (<code>out</code> is
+‘latex’ or ‘latexpage’).</p>
+<p><code>align</code> and <code>note.align</code> are single strings
+used for alignment. <code>align</code> will be used as column alignment
+in standard LaTeX syntax, for example ‘lccc’ for the left column
+left-aligned and the other three centered. <code>note.align</code> is an
+alignment note specifically for any table notes set with
+<code>note</code> (or significance stars), which enters as part of a
+<code>\multicolumn</code> argument. These both accept ‘p{}’ and other
+LaTeX column types.</p>
+<p>Defaults to left-aligned ‘Variable’ columns and right-aligned
+everything else. If <code>col.widths</code> is specified,
+<code>align</code> defaults to ‘p{}’ columns, with widths set by
+<code>col.width</code>.</p>
+<p><code>fit.page</code> can be used to ensure that the table is a
+certain width, and will be used as an entry to a
+<code>\resizebox{}</code>. Set to <code>\\textwidth</code> to set the
+table to text width, or <code>.9\\textwidth</code> for 90% of the page,
+and so on, or any recognized width value in LaTeX.</p>
+<p>For all of these, be sure to escape special characters, in particular
+backslashes.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sumtable</span>(iris,<span class="at">align =</span> <span class="st">&#39;p{.3</span><span class="sc">\\</span><span class="st">textwidth}ccccccc&#39;</span>, <span class="at">fit.page =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">textwidth&#39;</span>, <span class="at">out =</span> <span class="st">&#39;latex&#39;</span>)</span></code></pre></div>
 </div>
 <div id="opts" class="section level2">
 <h2><code>opts</code></h2>
-<p>You can create a named list where the names are the above options and the values are the settings for those options, and input it into <code>sumtable</code> using <code>opts=</code>. This is an easy way to set the same options for many <code>sumtable</code>s.</p>
+<p>You can create a named list where the names are the above options and
+the values are the settings for those options, and input it into
+<code>sumtable</code> using <code>opts=</code>. This is an easy way to
+set the same options for many <code>sumtable</code>s.</p>
 </div>
 </div>
 
