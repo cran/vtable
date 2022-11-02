@@ -189,7 +189,8 @@ parsefcn_summ <- function(x,y, ...) {
 # Internal function for sumtable
 summary.row <- function(data,var,st,
                         title,summ,cla,factor.percent,
-                        factor.count,factor.numeric,digits,fixed.digits, wts = NULL) {
+                        factor.count,factor.numeric,digits,fixed.digits, wts = NULL,
+                        fmt = NULL, skip.format = NULL) {
 
   numcols <- length(summ)
   if (cla == 'header') {
@@ -257,13 +258,18 @@ summary.row <- function(data,var,st,
     #Run each of the functions on the variable and get results
     results <- lapply(1:ncol(mat),
                       function(x) sapply(summ, function(y) parsefcn_summ(mat[,x],y, wts = wts[!is.na(va)])))
+    #Format
+    results <- lapply(1:length(results),
+                      function(x) sapply(1:length(results[[x]]), function(y) ifelse(summ[y] %in% skip.format, results[[x]][y], fmt(results[[x]][y]))))
     #Round
-    if (fixed.digits) {
-      results <- lapply(results, function(x)
-        sapply(1:length(x), function(y) format(x[y],digits=digits[y],nsmall = max(digits[y],1),scientific=FALSE)))
-    } else {
-      results <- lapply(results, function(x)
-        sapply(1:length(x), function(y) as.character(round(x[y],digits=digits[y]))))
+    if (is.numeric(results[[1]])) {
+      if (fixed.digits) {
+        results <- lapply(results, function(x)
+          sapply(1:length(x), function(y) format(x[y],digits=digits[y],nsmall = max(digits[y],1),scientific=FALSE)))
+      } else {
+        results <- lapply(results, function(x)
+          sapply(1:length(x), function(y) as.character(round(x[y],digits=digits[y]))))
+      }
     }
     #Add factor names
     results <- lapply(1:length(results), function(x) c(facnames[x],results[[x]]))
@@ -278,11 +284,16 @@ summary.row <- function(data,var,st,
     #Run each of the functions on the variable and get results
     results <- sapply(summ, function(y) parsefcn_summ(va,y, wts = wts[!is.na(va)]))
 
-    #Round
-    if (fixed.digits) {
-      results <- sapply(1:length(results), function(y) format(results[y],digits=max(digits[y],1),nsmall = digits[y],scientific = FALSE))
-    } else {
-      results <- sapply(1:length(results), function(y) round(results[y],digits=max(digits[y],1)))
+    #Format
+    results <- sapply(1:length(results), function(y) ifelse(summ[y] %in% skip.format, results[y], fmt(results[y])))
+
+    # If it's still a number, our formatting function was function(x). If not, we did formatting
+    if (is.numeric(results)) {
+      if (fixed.digits) {
+        results <- sapply(1:length(results), function(y) format(results[y],digits=max(digits[y],1),nsmall = digits[y],scientific = FALSE))
+      } else {
+        results <- sapply(1:length(results), function(y) round(results[y],digits=max(digits[y],1)))
+      }
     }
     #And construct
     st[1,] <- c(title,results)
@@ -361,7 +372,28 @@ clean_multicol_kable <- function(df,title,note=NA) {
     fmt <- NULL
   }
 
+  # And format the header if there is one
+  if (hasheader) {
+    # Get rid of deleted cells
+    if (is.null(fmt)) {
+      headerrow[headerrow == 'DELETECELL'] = ''
+    } else {
+      headerrow <- headerrow[headerrow != 'DELETECELL']
+    }
+    # HEADERROW itself is blank
+    headerrow <- gsub('HEADERROW','',headerrow)
+
+    # No alignment control anyway
+    headerrow <- gsub('_c_','_l_',headerrow)
+    headerrow <- gsub('_r_','_l_',headerrow)
+  }
+
   if (is.null(fmt)) {
+    if (!is.null(hasheader)) {
+      headerrow <- gsub('_MULTICOL.*$','',headerrow)
+      names(headerrow) = names(df)
+      df = rbind(headerrow, df)
+    }
     kb <- knitr::kable(df, caption = title, row.names = FALSE)
   } else if (fmt == 'html') {
     kb <- knitr::kable(df, caption = title, row.names = FALSE, format = fmt, escape = FALSE)
@@ -371,23 +403,14 @@ clean_multicol_kable <- function(df,title,note=NA) {
 
   # And now add the header
   if (hasheader & !is.null(fmt)) {
-    # Get rid of deleted cells
-    headerrow <- headerrow[headerrow != 'DELETECELL']
-    # HEADERROW itself is blank
-    headerrow <- gsub('HEADERROW','',headerrow)
-
-    # No alignment control anyway
-    headerrow <- gsub('_c_','_l_',headerrow)
-    headerrow <- gsub('_r_','_l_',headerrow)
-
     headercol <- eval(parse(text=paste('c(',
-      paste(
-      sapply(headerrow, FUN = function(x)
-        ifelse(grepl('_MULTICOL_l_',x),
-               paste0('"',strsplit(x,'_MULTICOL_l_')[[1]][1],'"=',strsplit(x,'_MULTICOL_l_')[[1]][2]),
-               paste0('"',x,'"'))),
-      collapse = ','),
-      ')')))
+                                       paste(
+                                         sapply(headerrow, FUN = function(x)
+                                           ifelse(grepl('_MULTICOL_l_',x),
+                                                  paste0('"',strsplit(x,'_MULTICOL_l_')[[1]][1],'"=',strsplit(x,'_MULTICOL_l_')[[1]][2]),
+                                                  paste0('"',x,'"'))),
+                                         collapse = ','),
+                                       ')')))
 
     kb <- kableExtra::add_header_above(kb,headercol)
   }
