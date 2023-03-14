@@ -15,8 +15,10 @@ st(iris)
 #           group.test=FALSE,
 #           group.weights =NA,
 #           col.breaks=NA,
-#           digits=NA,
+#           digits=2,
 #           fixed.digits=FALSE,
+#           numformat = formatfunc(digits = digits, big.mark = ''),
+#           skip.format = c('notNA(x)','propNA(x)','countNA(x)'),
 #           factor.percent=TRUE,
 #           factor.counts=TRUE,
 #           factor.numeric=FALSE,
@@ -32,6 +34,7 @@ st(iris)
 #           note.align='l',
 #           fit.page=NA,
 #           simple.kable=FALSE,
+#           obs.function=NA)
 #           opts=list())
 
 ## ---- eval = FALSE------------------------------------------------------------
@@ -89,7 +92,10 @@ sumtable(mtcars, col.breaks = c(4,8))
 st(iris, digits = 5)
 
 ## -----------------------------------------------------------------------------
-st(iris, digits = 3, fixed.digits = TRUE)
+st(iris, digits = 3, fixed.digits = TRUE, numformat = NA)
+
+## -----------------------------------------------------------------------------
+st(iris, numformat = c('|cm', 'Sepal.Width' = 'percent'))
 
 ## -----------------------------------------------------------------------------
 st(iris, factor.percent = FALSE, factor.counts = FALSE)

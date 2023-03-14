@@ -19,3 +19,13 @@
 - Adds variable formatting options to `sumtable()`.
 - Adds count and frequency columns to `labeltable()`.
 - Other minor fixes.
+
+# vtable 1.4.2
+
+- `format` option of `sumtable()` changed to `numformat` to avoid namespace issues.
+- Added `obs.function` option to `sumtable()` to make it easier to swap out the function used to count observations.
+- Made it possible to use a named vector/list to change `numformat` option for only some variables in `sumtable()`, instead of having to specify every single variable.
+- Updated vignettes.
+- Fixed issue where default `out` option did not work running inside of `knitr` rendering to Word.
+- Fixed issue with escaped characters in `kable`s.
+- Added `formatfunc()` function to easily customize `numformat` options.

@@ -2,6 +2,8 @@
 #  labeltable(var,
 #      ...,
 #      out=NA,
+#      count=FALSE,
+#      percent=FALSE,
 #      file=NA,
 #      desc=NA,
 #      note=NA,
@@ -19,6 +21,11 @@ labeltable(efc$e15relat)
 #Include more than one variable to show, for each value of the first, what values of the others are present in the data.
 data(mtcars)
 labeltable(mtcars$cyl,mtcars$carb,mtcars$am)
+
+## -----------------------------------------------------------------------------
+library(vtable)
+data(LifeCycleSavings)
+labeltable(efc$e15relat, count = TRUE, percent = TRUE)
 
 ## ---- eval=FALSE--------------------------------------------------------------
 #  library(vtable)

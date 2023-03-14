@@ -12,7 +12,7 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2022-11-02" />
+<meta name="date" content="2023-03-14" />
 
 <title>vtable Bonus Functions</title>
 
@@ -31,23 +31,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -65,55 +65,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -341,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">vtable Bonus Functions</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2022-11-02</h4>
+<h4 class="date">2023-03-14</h4>
 
 
 
@@ -399,6 +398,8 @@ times!</p>
 </tr>
 </tbody>
 </table>
+<p>Note that <code>notNA()</code> also has some additional formatting
+options, which you would probably ignore if using it iteractively.</p>
 </div>
 <div id="is.round" class="section level2">
 <h2><code>is.round</code></h2>
@@ -412,6 +413,37 @@ times!</p>
 </div>
 <div id="other-helper-functions" class="section level1">
 <h1>Other Helper Functions</h1>
+<div id="formatfunc" class="section level2">
+<h2><code>formatfunc</code></h2>
+<p><code>formatfunc()</code> is a function that returns a function,
+which itself helps format numbers using the <code>format()</code>
+function, in the same spirit as the <code>label_</code> functions in the
+scales package. It is largely used for the <code>numformat</code>
+argument of <code>sumtable()</code>.</p>
+<p><code>formatfunc()</code> for the most part takes the same arguments
+as <code>format()</code>, and so <code>help(format)</code> can be a
+guide for using it. However, there are some differences.</p>
+<p>Some defaults are changed. By default,
+<code>scientific = FALSE, trim = TRUE</code>.</p>
+<p>There are four new arguments as well. <code>percent = TRUE</code>
+will format the number as a percentage by multiplying it by 100 and
+adding a % at the end. You can instead set <code>percent</code> equal to
+some number, and that number will instead be taken as 100%, instead of
+1. So <code>percent = 100</code>, for example, will just add a % at the
+end without doing any multiplying.</p>
+<p><code>prefix</code> and <code>suffix</code> will, naturally, add
+prefixes or suffixes to the formatted number. So
+<code>prefix = &#39;$&#39;, suffix = &#39;M&#39;</code>, for example, will produce a
+function that will turn <code>3</code> into <code>$3M</code>.
+<code>scale</code> will multiply the number by <code>scale</code> before
+formatting it. So
+<code>prefix = &#39;$&#39;, suffix = &#39;M&#39;, scale = 1/1000000</code> will turn
+<code>3000000</code> into <code>$3M</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_formatter_func <span class="ot">&lt;-</span> <span class="fu">formatfunc</span>(<span class="at">percent =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">nsmall =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&#39;,&#39;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">my_formatter_func</span>(<span class="fl">523.2355987</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;52,323.56%&quot;</code></pre>
+</div>
 <div id="pctile" class="section level2">
 <h2><code>pctile</code></h2>
 <p><code>pctile(x)</code> is short for
@@ -424,18 +456,18 @@ all integer percentiles, and you can pull out which ones you want
 afterwards. <code>pctile(x)[50]</code> is the 50th percentile, etc..
 This can be convenient in several applications, an obvious one being in
 <code>sumtable</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Some random normal data, and its percentiles</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">pctile</span>(d)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#25th, 50th, 75th percentile</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>pc[<span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">75</span>)]</span></code></pre></div>
-<pre><code>##         25%         50%         75% 
-## -0.70750868 -0.01200704  0.69231550</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Inverse normal CDF with 100 points of articulation</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pc)</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Some random normal data, and its percentiles</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">pctile</span>(d)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#25th, 50th, 75th percentile</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pc[<span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">75</span>)]</span></code></pre></div>
+<pre><code>##          25%          50%          75% 
+## -0.690855543 -0.006592872  0.663079331</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Inverse normal CDF with 100 points of articulation</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pc)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="weighted.sd" class="section level2">
 <h2><code>weighted.sd</code></h2>
@@ -454,13 +486,13 @@ own if you like. Unlike <code>weighted.mean()</code>, setting
 <p>Where <span class="math inline">\(\bar{x}_w\)</span> is the weighted
 mean of <span class="math inline">\(x\)</span>, and <span class="math inline">\(N_w\)</span> is the number of observations with a
 nonzero weight.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(x, w)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(x, w)</span></code></pre></div>
 <pre><code>## [1] 67</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
 <pre><code>## [1] 29.01149</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.sd</span>(x, w)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.sd</span>(x, w)</span></code></pre></div>
 <pre><code>## [1] 23.80476</code></pre>
 </div>
 </div>
@@ -473,15 +505,15 @@ between a categorical variable <code>x</code> and another variable
 <p>Then, it outputs a <em>formatted string</em> as its output, with
 significance stars, for printing.</p>
 <p>The function takes the format</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(x,y,<span class="at">w=</span><span class="cn">NA</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">factor.test =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">numeric.test =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.cutoffs =</span> <span class="fu">c</span>(.<span class="dv">01</span>,.<span class="dv">05</span>,.<span class="dv">1</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.markers =</span> <span class="fu">c</span>(<span class="st">&#39;***&#39;</span>,<span class="st">&#39;**&#39;</span>,<span class="st">&#39;*&#39;</span>),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits =</span> <span class="dv">3</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fixed.digits =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&#39;{name}={stat}{stars}&#39;</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">opts =</span> <span class="fu">list</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(x,y,<span class="at">w=</span><span class="cn">NA</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">factor.test =</span> <span class="cn">NA</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">numeric.test =</span> <span class="cn">NA</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.cutoffs =</span> <span class="fu">c</span>(.<span class="dv">01</span>,.<span class="dv">05</span>,.<span class="dv">1</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.markers =</span> <span class="fu">c</span>(<span class="st">&#39;***&#39;</span>,<span class="st">&#39;**&#39;</span>,<span class="st">&#39;*&#39;</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fixed.digits =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&#39;{name}={stat}{stars}&#39;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">opts =</span> <span class="fu">list</span>())</span></code></pre></div>
 <div id="factor.test-and-numeric.test" class="section level2">
 <h2><code>factor.test</code> and <code>numeric.test</code></h2>
 <p>These are functions that actually perform the independence test.
@@ -511,10 +543,10 @@ will get marked with <code>&#39;***&#39;</code>, each from .01 to .05 will get
 <code>&#39;**&#39;</code>, and each from .05 to .1 will get <code>*</code>.</p>
 <p>Defaults are set to “economics defaults” (.1, .05, .01). But these
 are of course easy to change.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Length,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.cutoffs =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">01</span>,.<span class="dv">001</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Length,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">star.cutoffs =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">01</span>,.<span class="dv">001</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;F=119.265*&quot;</code></pre>
 </div>
 <div id="digits-and-fixed.digits" class="section level2">
@@ -523,14 +555,14 @@ are of course easy to change.</p>
 from the test statistics and p-values should be displayed.
 <code>fixed.digits</code> determines whether trailing zeros are
 maintained.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;F=49.2***&quot;</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits=</span><span class="dv">4</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fixed.digits =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;F=49.2***&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">digits=</span><span class="dv">4</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fixed.digits =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;F=49.1600***&quot;</code></pre>
 </div>
 <div id="format" class="section level2">
@@ -545,9 +577,9 @@ additional markup like <code>&#39;{name}$={stat}^{stars}$&#39;}</code> in LaTeX
 or <code>&#39;{name}={stat}&lt;sup&gt;{stars}&lt;/sup&gt;&#39;</code> in HTML.
 If you do this, be sure to think carefully about escaping or not
 escaping characters as appropriate when you print!</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Width,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&#39;Pr(&gt;{name}): {pval}{stars}&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">independence.test</span>(iris<span class="sc">$</span>Species,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                  iris<span class="sc">$</span>Sepal.Width,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&#39;Pr(&gt;{name}): {pval}{stars}&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Pr(&gt;F): &lt;0.001***&quot;</code></pre>
 </div>
 <div id="opts" class="section level2">

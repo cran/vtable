@@ -1,5 +1,10 @@
 ## -----------------------------------------------------------------------------
 library(vtable)
+my_formatter_func <- formatfunc(percent = TRUE, digits = 3, nsmall = 2, big.mark = ',')
+my_formatter_func(523.2355987)
+
+## -----------------------------------------------------------------------------
+library(vtable)
 #Some random normal data, and its percentiles
 d <- rnorm(1000)
 pc <- pctile(d)
