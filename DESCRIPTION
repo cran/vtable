@@ -1,7 +1,7 @@
 Package: vtable
 Type: Package
 Title: Variable Table for Variable Documentation
-Version: 1.4.2
+Version: 1.4.3
 Authors@R: c(person(given = "Nick", family = "Huntington-Klein", role = c("aut","cre"), email = "nhuntington-klein@seattleu.edu"))
 Description: Automatically generates HTML variable documentation including variable names, labels, classes, value labels (if applicable), value ranges, and summary statistics. See the vignette "vtable" for a package overview.
 License: MIT + file LICENSE
@@ -14,8 +14,8 @@ VignetteBuilder: knitr
 URL: https://nickch-k.github.io/vtable/
 BugReports: https://github.com/NickCH-K/vtable/issues
 NeedsCompilation: no
-Packaged: 2023-03-14 22:34:34 UTC; nickc
+Packaged: 2023-03-27 06:45:17 UTC; nickc
 Author: Nick Huntington-Klein [aut, cre]
 Maintainer: Nick Huntington-Klein <nhuntington-klein@seattleu.edu>
 Repository: CRAN
-Date/Publication: 2023-03-14 23:00:02 UTC
+Date/Publication: 2023-03-27 08:30:02 UTC
