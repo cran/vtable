@@ -12,7 +12,7 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2023-04-28" />
+<meta name="date" content="2023-10-12" />
 
 <title>dftoHTML and dftoLaTeX: Data Frame Formatting</title>
 
@@ -51,7 +51,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">dftoHTML and dftoLaTeX: Data Frame
 Formatting</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2023-04-28</h4>
+<h4 class="date">2023-10-12</h4>
 
 
 
@@ -366,15 +366,15 @@ Markdown).</p>
 <div id="the-dftohtml-function" class="section level1">
 <h1>The <code>dftoHTML()</code> function</h1>
 <p><code>dftoHTML()</code> syntax follows the following outline:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(data,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">out=</span><span class="cn">NA</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">file=</span><span class="cn">NA</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">note=</span><span class="cn">NA</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">anchor=</span><span class="cn">NA</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.width=</span><span class="cn">NA</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.align=</span><span class="cn">NA</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">row.names=</span><span class="cn">FALSE</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">no.escape=</span><span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">dftoHTML</span>(data,</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>         <span class="at">out=</span><span class="cn">NA</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>         <span class="at">file=</span><span class="cn">NA</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>         <span class="at">note=</span><span class="cn">NA</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>         <span class="at">anchor=</span><span class="cn">NA</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>         <span class="at">col.width=</span><span class="cn">NA</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>         <span class="at">col.align=</span><span class="cn">NA</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>         <span class="at">row.names=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>         <span class="at">no.escape=</span><span class="cn">NA</span>)</span></code></pre></div>
 <p><code>dftoHTML()</code> largely exists to serve
 <code>vtable()</code>, <code>sumtable()</code>, and
 <code>labeltable()</code>. What it does is takes a data set
@@ -390,10 +390,10 @@ tabs and data view tabs.</p>
 <h2><code>data</code></h2>
 <p><code>dftoHTML()</code> will accept any data set with a
 <code>colnames()</code> attribute.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings)</span></code></pre></div>
 </div>
 <div id="out" class="section level2">
 <h2>out</h2>
@@ -429,26 +429,26 @@ only).</td>
 </table>
 <p>By default, <code>vtable</code> will select ‘viewer’ if running in
 RStudio, and ‘browser’ otherwise.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;browser&#39;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;viewer&#39;</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>htmlcode <span class="ot">&lt;-</span> <span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;htmlreturn&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;browser&#39;</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;viewer&#39;</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>htmlcode <span class="ot">&lt;-</span> <span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;htmlreturn&#39;</span>)</span></code></pre></div>
 </div>
 <div id="file" class="section level2">
 <h2><code>file</code></h2>
 <p>The <code>file</code> argument will write the HTML version of
 <code>data</code> to an HTML file and save it. Will automatically append
 ‘html’ filetype if the filename does not include a period.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycledata_htmlversion.html&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycledata_htmlversion.html&#39;</span>)</span></code></pre></div>
 </div>
 <div id="note" class="section level2">
 <h2><code>note</code></h2>
 <p><code>note</code> will add a table note in the last row.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch 1980&#39;</span>).</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch 1980&#39;</span>).</span></code></pre></div>
 </div>
 <div id="anchor" class="section level2">
 <h2><code>anchor</code></h2>
@@ -462,8 +462,8 @@ including your table in a larger document.</p>
 for all columns in <code>data</code>. <code>col.width</code>, as a
 vector of percentage column widths on the 0-100 scale, will override
 these defaults.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s make sr much bigger for some reason</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">col.width=</span><span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#Let&#39;s make sr much bigger for some reason</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">col.width=</span><span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>))</span></code></pre></div>
 </div>
 <div id="col.align" class="section level2">
 <h2><code>col.align</code></h2>
@@ -478,7 +478,7 @@ CSS to every cell in the column.</p>
 <h2><code>row.names</code></h2>
 <p>The <code>row.names</code> flag determines whether the row names of
 the data are included as the first column in the output table.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="no.escape" class="section level2">
 <h2><code>no.escape</code></h2>
@@ -488,23 +488,23 @@ could cause you some sort of existential crisis if you wanted to put
 HTML formatting in your data to be displayed. So set
 <code>no.escape</code> to a vector of column indices to skip the
 character-escaping process for those columns.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Don&#39;t escape columns 1 or 2</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">no.escape=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">#Don&#39;t escape columns 1 or 2</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">dftoHTML</span>(LifeCycleSavings,<span class="at">no.escape=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="the-dftolatex-function" class="section level1">
 <h1>The <code>dftoLaTeX()</code> function</h1>
 <p><code>dftoLaTeX()</code> syntax follows the following outline:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(data,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">file=</span><span class="cn">NA</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">frag=</span><span class="cn">TRUE</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title=</span><span class="cn">NA</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">note=</span><span class="cn">NA</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">anchor=</span><span class="cn">NA</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">align=</span><span class="cn">NA</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">row.names=</span><span class="cn">FALSE</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">no.escape=</span><span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(data,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>         <span class="at">file=</span><span class="cn">NA</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>         <span class="at">frag=</span><span class="cn">TRUE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>         <span class="at">title=</span><span class="cn">NA</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>         <span class="at">note=</span><span class="cn">NA</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>         <span class="at">anchor=</span><span class="cn">NA</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>         <span class="at">align=</span><span class="cn">NA</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>         <span class="at">row.names=</span><span class="cn">FALSE</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>         <span class="at">no.escape=</span><span class="cn">NA</span>)</span></code></pre></div>
 <p><code>dftoLaTeX()</code> largely exists to serve
 <code>vtable()</code>, <code>sumtable()</code>, and
 <code>labeltable()</code>. What it does is takes a data set
@@ -516,30 +516,30 @@ table format.</p>
 <h2><code>data</code></h2>
 <p><code>dftoLaTeX()</code> will accept any data set with a
 <code>colnames()</code> attribute.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings)</span></code></pre></div>
 </div>
 <div id="file-1" class="section level2">
 <h2><code>file</code></h2>
 <p>The <code>file</code> argument will write the TeX version of
 <code>data</code> to a .tex file and save it. Will automatically append
 ‘tex’ filetype if the filename does not include a period.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycledata_latexversion.tex&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycledata_latexversion.tex&#39;</span>)</span></code></pre></div>
 </div>
 <div id="note-1" class="section level2">
 <h2><code>note</code></h2>
 <p><code>note</code> will add a table note in the last row.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch 1980&#39;</span>).</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch 1980&#39;</span>).</span></code></pre></div>
 </div>
 <div id="anchor-1" class="section level2">
 <h2><code>anchor</code></h2>
 <p><code>anchor</code> will add an anchor ID (<code>\label{}</code>) to
 allow other parts of your document to link to it, if you are including
 your output in a larger document.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">anchor=</span><span class="st">&#39;tab:LCS&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">anchor=</span><span class="st">&#39;tab:LCS&#39;</span>)</span></code></pre></div>
 </div>
 <div id="align" class="section level2">
 <h2><code>align</code></h2>
@@ -548,13 +548,13 @@ standard LaTeX syntax, for example ‘lccc’ for the left column
 left-aligned and the other three centered. Accepts ‘p{}’ and other LaTeX
 column types. Don’t forget to escape backslashes!</p>
 <p>Defaults to all left-aligned.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>,<span class="at">align=</span><span class="st">&#39;p{.25</span><span class="sc">\\</span><span class="st">textwidth}ccccc&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>,<span class="at">align=</span><span class="st">&#39;p{.25</span><span class="sc">\\</span><span class="st">textwidth}ccccc&#39;</span>)</span></code></pre></div>
 </div>
 <div id="row.names-1" class="section level2">
 <h2><code>row.names</code></h2>
 <p>The <code>row.names</code> flag determines whether the row names of
 the data are included as the first column in the output table.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="no.escape-1" class="section level2">
 <h2><code>no.escape</code></h2>
@@ -564,8 +564,8 @@ This could cause you some sort of existential crisis if you wanted to
 put LaTeX formatting in your data to be displayed. So set
 <code>no.escape</code> to a vector of column indices to skip the
 character-escaping process for those columns.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Don&#39;t escape columns 1 or 2</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">no.escape=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co">#Don&#39;t escape columns 1 or 2</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">dftoLaTeX</span>(LifeCycleSavings,<span class="at">no.escape=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 </div>
 </div>
 

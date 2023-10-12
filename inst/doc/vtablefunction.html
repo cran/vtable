@@ -12,7 +12,7 @@
 
 <meta name="author" content="Nick Huntington-Klein" />
 
-<meta name="date" content="2023-04-28" />
+<meta name="date" content="2023-10-12" />
 
 <title>Variable Table (vtable)</title>
 
@@ -275,7 +275,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -564,7 +564,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Variable Table (vtable)</h1>
 <h4 class="author">Nick Huntington-Klein</h4>
-<h4 class="date">2023-04-28</h4>
+<h4 class="date">2023-10-12</h4>
 
 
 
@@ -597,28 +597,28 @@ variable label you want.</p>
 <h1>The <code>vtable()</code> function</h1>
 <p><code>vtable()</code> (or <code>vt()</code> for short) syntax follows
 the following outline:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(data,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">out=</span><span class="cn">NA</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">file=</span><span class="cn">NA</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels=</span><span class="cn">NA</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">class=</span><span class="cn">TRUE</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">values=</span><span class="cn">TRUE</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">missing=</span><span class="cn">FALSE</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">index=</span><span class="cn">FALSE</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">factor.limit=</span><span class="dv">5</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">char.values=</span><span class="cn">FALSE</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">data.title=</span><span class="cn">NA</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">desc=</span><span class="cn">NA</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">note=</span><span class="cn">NA</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">anchor=</span><span class="cn">NA</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col.width=</span><span class="cn">NA</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">col.align=</span><span class="cn">NA</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">align=</span><span class="cn">NA</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">note.align=</span><span class="st">&#39;l&#39;</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fit.page=</span><span class="cn">NA</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">summ=</span><span class="cn">NA</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">lush=</span><span class="cn">FALSE</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">opts=</span><span class="fu">list</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">vtable</span>(data,</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>       <span class="at">out=</span><span class="cn">NA</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>       <span class="at">file=</span><span class="cn">NA</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>       <span class="at">labels=</span><span class="cn">NA</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>       <span class="at">class=</span><span class="cn">TRUE</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>       <span class="at">values=</span><span class="cn">TRUE</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>       <span class="at">missing=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>       <span class="at">index=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>       <span class="at">factor.limit=</span><span class="dv">5</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>       <span class="at">char.values=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>       <span class="at">data.title=</span><span class="cn">NA</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>       <span class="at">desc=</span><span class="cn">NA</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>       <span class="at">note=</span><span class="cn">NA</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>       <span class="at">anchor=</span><span class="cn">NA</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>       <span class="at">col.width=</span><span class="cn">NA</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>       <span class="at">col.align=</span><span class="cn">NA</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>       <span class="at">align=</span><span class="cn">NA</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>       <span class="at">note.align=</span><span class="st">&#39;l&#39;</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>       <span class="at">fit.page=</span><span class="cn">NA</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>       <span class="at">summ=</span><span class="cn">NA</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>       <span class="at">lush=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>       <span class="at">opts=</span><span class="fu">list</span>())</span></code></pre></div>
 <p>The goal of <code>vtable()</code> is to take a data set
 <code>data</code> and output a usually-HTML (but
 <code>data.frame</code>, <code>kable</code>, <code>csv</code>, and
@@ -643,11 +643,11 @@ display that documentation, one variable per row on the output
 <p>If <code>data</code> has embedded variable or value labels, as the
 data set <code>efc</code> does below, <code>vtable()</code> will extract
 and use them automatically.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 1, using base data LifeCycleSavings</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings, <span class="at">out=</span><span class="st">&#39;kable&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#Example 1, using base data LifeCycleSavings</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings, <span class="at">out=</span><span class="st">&#39;kable&#39;</span>)</span></code></pre></div>
 <table>
 <caption>
 LifeCycleSavings
@@ -723,11 +723,11 @@ Num: 0.22 to 16.71
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 2, using efc data with embedded variable labels</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Don&#39;t forget the handy shortcut vt()!</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vt</span>(efc)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#Example 2, using efc data with embedded variable labels</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#Don&#39;t forget the handy shortcut vt()!</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">vt</span>(efc)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
@@ -1180,23 +1180,23 @@ document with <code>knitr</code>, it will default to ‘kable’. Note that
 an RMarkdown default to ‘kable’ will also include some nice formatting,
 where <code>out = &#39;kable&#39;</code> directly will give you a more basic
 <code>kable</code> you can format yourself.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;browser&#39;</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;viewer&#39;</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>htmlcode <span class="ot">&lt;-</span> <span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;htmlreturn&#39;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>vartable <span class="ot">&lt;-</span> <span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;return&#39;</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#I can easily \input this into my LaTeX doc:</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;latex&#39;</span>,<span class="at">file=</span><span class="st">&#39;mytable1.tex&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;browser&#39;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;viewer&#39;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>htmlcode <span class="ot">&lt;-</span> <span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;htmlreturn&#39;</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>vartable <span class="ot">&lt;-</span> <span class="fu">vtable</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;return&#39;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#I can easily \input this into my LaTeX doc:</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">out=</span><span class="st">&#39;latex&#39;</span>,<span class="at">file=</span><span class="st">&#39;mytable1.tex&#39;</span>)</span></code></pre></div>
 </div>
 <div id="file" class="section level2">
 <h2><code>file</code></h2>
 <p>The <code>file</code> argument will write the variable documentation
 file to an HTML or LaTeX file and save it. Will automatically append
 ‘html’ or ‘tex’ filetype if the filename does not include a period.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">file=</span><span class="st">&#39;lifecycle_variabledocumentation&#39;</span>)</span></code></pre></div>
 </div>
 <div id="labels" class="section level2">
 <h2><code>labels</code></h2>
@@ -1213,15 +1213,15 @@ want them in the table.</p>
 number of variables in <code>data</code>, and in the same order.
 <code>NA</code> values can be used for padding if some variables do not
 have labels.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric real per-capita disposable income&#39;</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric % growth rate of dpi&#39;</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="st">&#39;numeric real per-capita disposable income&#39;</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="st">&#39;numeric % growth rate of dpi&#39;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1315,8 +1315,8 @@ Num: 0.22 to 16.71
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1418,15 +1418,15 @@ will do) where the first column has the variable names, and the second
 column has the labels. The column names don’t matter.</p>
 <p>This approach does <strong>not</strong> require that every variable
 name in <code>data</code> has a matching label.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#with names &#39;sr&#39;, &#39;pop15&#39;, &#39;pop75&#39;, &#39;dpi&#39;, and &#39;ddpi&#39;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nonsensename1 =</span> <span class="fu">c</span>(<span class="st">&#39;sr&#39;</span>, <span class="st">&#39;pop15&#39;</span>, <span class="st">&#39;pop75&#39;</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">nonsensename2 =</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>))</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#with names &#39;sr&#39;, &#39;pop15&#39;, &#39;pop75&#39;, &#39;dpi&#39;, and &#39;ddpi&#39;</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nonsensename1 =</span> <span class="fu">c</span>(<span class="st">&#39;sr&#39;</span>, <span class="st">&#39;pop15&#39;</span>, <span class="st">&#39;pop75&#39;</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="at">nonsensename2 =</span> <span class="fu">c</span>(<span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    <span class="st">&#39;numeric % of population over 75&#39;</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="fu">vt</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1531,14 +1531,14 @@ as it has a valid set of variable names stored in the
 <code>colnames()</code> attribute.</p>
 <p>This approach does <strong>not</strong> require that every variable
 name in <code>data</code> has a matching label.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#with names &#39;sr&#39;, &#39;pop15&#39;, &#39;pop75&#39;, &#39;dpi&#39;, and &#39;ddpi&#39;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sr =</span> <span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop15 =</span> <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">#Note that LifeCycleSavings has five variables</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#with names &#39;sr&#39;, &#39;pop15&#39;, &#39;pop75&#39;, &#39;dpi&#39;, and &#39;ddpi&#39;</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co">#These variable labels are taken from help(LifeCycleSavings)</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>labs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sr =</span> <span class="st">&#39;numeric aggregate personal savings&#39;</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    <span class="at">pop15 =</span> <span class="st">&#39;numeric % of population under 15&#39;</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    <span class="at">pop75 =</span> <span class="st">&#39;numeric % of population over 75&#39;</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">labels=</span>labs)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1649,8 +1649,8 @@ first <code>factor.limit</code> (default 5) factors listed.</p>
 <p>If the variable is numeric but has value labels applied by the
 <code>sjlabelled</code> package, <code>vtable()</code> will find them
 and report the numeric-label crosswalk.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">values=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">values=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1708,7 +1708,7 @@ numeric
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 LifeCycleSavings
@@ -1784,9 +1784,9 @@ Num: 0.22 to 16.71
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#CO2 contains factor variables</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(CO2)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(CO2)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">#CO2 contains factor variables</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">data</span>(CO2)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">vtable</span>(CO2)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 CO2
@@ -1862,12 +1862,12 @@ Num: 7.7 to 45.5
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#efc contains labeled values</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note that the original value labels do not easily tell you what numerical</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#value each label maps to, but vtable() does.</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(efc)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">#efc contains labeled values</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#Note that the original value labels do not easily tell you what numerical</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#value each label maps to, but vtable() does.</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="fu">vtable</span>(efc)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
@@ -2289,15 +2289,15 @@ that some factors have been cut off.</p>
 the values that character variables take, as though they were factors.
 If you only want some of the character variables to have their values
 listed, use a character vector to indicate which variables.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(USJudgeRatings)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>Judge <span class="ot">&lt;-</span> <span class="fu">row.names</span>(USJudgeRatings)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>SecondCharacter <span class="ot">&lt;-</span> <span class="st">&#39;Less Interesting&#39;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>ThirdCharacter <span class="ot">&lt;-</span> <span class="st">&#39;Less Interesting Still!&#39;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Show values for all character variables</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(USJudgeRatings,<span class="at">char.values=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Or just for a subset</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(USJudgeRatings,<span class="at">char.values=</span><span class="fu">c</span>(<span class="st">&#39;Judge&#39;</span>,<span class="st">&#39;SecondCharacter&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">data</span>(USJudgeRatings)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>Judge <span class="ot">&lt;-</span> <span class="fu">row.names</span>(USJudgeRatings)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>SecondCharacter <span class="ot">&lt;-</span> <span class="st">&#39;Less Interesting&#39;</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>USJudgeRatings<span class="sc">$</span>ThirdCharacter <span class="ot">&lt;-</span> <span class="st">&#39;Less Interesting Still!&#39;</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#Show values for all character variables</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="fu">vtable</span>(USJudgeRatings,<span class="at">char.values=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="co">#Or just for a subset</span></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="fu">vtable</span>(USJudgeRatings,<span class="at">char.values=</span><span class="fu">c</span>(<span class="st">&#39;Judge&#39;</span>,<span class="st">&#39;SecondCharacter&#39;</span>))</span></code></pre></div>
 </div>
 <div id="data.title-desc-note-and-anchor" class="section level2">
 <h2><code>data.title</code>, <code>desc</code>, <code>note</code>, and
@@ -2328,17 +2328,17 @@ work with <code>out = &#39;return&#39;</code> or <code>out = &#39;csv&#39;</code
 <code>data.title</code> as the caption for the <code>kable</code>, and
 will use the <code>note</code> as a footnote, but won’t use
 <code>desc</code> or <code>anchor</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;omit&#39;</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;Data on the savings ratio 1960–1970. omit&#39;</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;Data on the savings ratio 1960–1970&#39;</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch (1980)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">data</span>(LifeCycleSavings)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings)</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;omit&#39;</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;Data on the savings ratio 1960–1970. omit&#39;</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="fu">vtable</span>(LifeCycleSavings,<span class="at">data.title=</span><span class="st">&#39;Intercountry Life-Cycle Savings Data&#39;</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>    <span class="at">desc=</span><span class="st">&#39;Data on the savings ratio 1960–1970&#39;</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>    <span class="at">note=</span><span class="st">&#39;Data from Belsley, Kuh, and Welsch (1980)&#39;</span>)</span></code></pre></div>
 </div>
 <div id="col.width" class="section level2">
 <h2><code>col.width</code></h2>
@@ -2347,11 +2347,11 @@ variable table depending on which measures
 <code>(name, class, label, values, summ)</code> are included.
 <code>col.width</code>, as a vector of percentage column widths on the
 0-100 scale, will override these defaults.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#The variable names in this data set are pretty short, and the value labels are</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#a little cramped, so let&#39;s move that over.</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">col.width=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">40</span>,<span class="dv">40</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#The variable names in this data set are pretty short, and the value labels are</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="co">#a little cramped, so let&#39;s move that over.</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">col.width=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">40</span>,<span class="dv">40</span>))</span></code></pre></div>
 </div>
 <div id="col.align" class="section level2">
 <h2><code>col.align</code></h2>
@@ -2363,9 +2363,9 @@ keep putting in whatever CSS attributes you want. They will be applied
 to the whole column.</p>
 <p>This option is only for HTML output and will only work with
 <code>out</code> values of ‘browser’, ‘viewer’, or ‘htmlreturn’.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">col.align =</span> <span class="st">&#39;right&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">col.align =</span> <span class="st">&#39;right&#39;</span>)</span></code></pre></div>
 </div>
 <div id="align-note.align-and-fit.page" class="section level2">
 <h2><code>align</code>, <code>note.align</code>, and
@@ -2391,9 +2391,9 @@ table to text width, or <code>.9\\textwidth</code> for 90% of the page,
 and so on, or any recognized width value in LaTeX.</p>
 <p>For all of these, be sure to escape special characters, in particular
 backslashes.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">align =</span> <span class="st">&#39;p{.3</span><span class="sc">\\</span><span class="st">textwidth}cc&#39;</span>, <span class="at">fit.page =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">textwidth&#39;</span>, <span class="at">out =</span> <span class="st">&#39;latex&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">align =</span> <span class="st">&#39;p{.3</span><span class="sc">\\</span><span class="st">textwidth}cc&#39;</span>, <span class="at">fit.page =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">textwidth&#39;</span>, <span class="at">out =</span> <span class="st">&#39;latex&#39;</span>)</span></code></pre></div>
 </div>
 <div id="summ" class="section level2">
 <h2><code>summ</code></h2>
@@ -2411,10 +2411,10 @@ give the proportion and count of NA values, and the count of non-NA
 values in the variable, respectively. These two functions are always
 reported first, and are the only functions that include NA values in
 their calculations.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">summ=</span><span class="fu">c</span>(<span class="st">&#39;mean(x)&#39;</span>,<span class="st">&#39;countNA(x)&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">data</span>(efc)</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="fu">vtable</span>(efc,<span class="at">summ=</span><span class="fu">c</span>(<span class="st">&#39;mean(x)&#39;</span>,<span class="st">&#39;countNA(x)&#39;</span>))</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 efc
