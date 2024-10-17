@@ -23,7 +23,7 @@ weighted.mean(x, w)
 sd(x)
 weighted.sd(x, w)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  independence.test(x,y,w=NA,
 #                    factor.test = NA,
 #                    numeric.test = NA,

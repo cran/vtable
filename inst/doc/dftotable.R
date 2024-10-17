@@ -1,4 +1,4 @@
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoHTML(data,
 #           out=NA,
 #           file=NA,
@@ -9,13 +9,13 @@
 #           row.names=FALSE,
 #           no.escape=NA)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  dftoHTML(LifeCycleSavings)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -24,25 +24,25 @@
 #  dftoHTML(LifeCycleSavings,out='viewer')
 #  htmlcode <- dftoHTML(LifeCycleSavings,out='htmlreturn')
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  data(LifeCycleSavings)
 #  dftoHTML(LifeCycleSavings,file='lifecycledata_htmlversion.html')
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoHTML(LifeCycleSavings,note='Data from Belsley, Kuh, and Welsch 1980').
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  #Let's make sr much bigger for some reason
 #  dftoHTML(LifeCycleSavings,col.width=c(60,10,10,10,10))
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  dftoHTML(LifeCycleSavings,row.names=TRUE)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #Don't escape columns 1 or 2
 #  dftoHTML(LifeCycleSavings,no.escape=1:2)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoLaTeX(data,
 #           file=NA,
 #           frag=TRUE,
@@ -53,29 +53,29 @@
 #           row.names=FALSE,
 #           no.escape=NA)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
 #  dftoLaTeX(LifeCycleSavings)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  data(LifeCycleSavings)
 #  dftoLaTeX(LifeCycleSavings,file='lifecycledata_latexversion.tex')
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoLaTeX(LifeCycleSavings,note='Data from Belsley, Kuh, and Welsch 1980').
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoLaTeX(LifeCycleSavings,anchor='tab:LCS')
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  dftoLaTeX(LifeCycleSavings,row.names=TRUE,align='p{.25\\textwidth}ccccc')
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  dftoLaTeX(LifeCycleSavings,row.names=TRUE)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  #Don't escape columns 1 or 2
 #  dftoLaTeX(LifeCycleSavings,no.escape=1:2)
 

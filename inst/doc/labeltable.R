@@ -1,4 +1,4 @@
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  labeltable(var,
 #      ...,
 #      out=NA,
@@ -27,7 +27,7 @@ library(vtable)
 data(LifeCycleSavings)
 labeltable(efc$e15relat, count = TRUE, percent = TRUE)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)

@@ -1,4 +1,4 @@
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  vtable(data,
 #         out=NA,
 #         file=NA,
@@ -36,7 +36,7 @@ data(efc)
 #Don't forget the handy shortcut vt()!
 vt(efc)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  data(LifeCycleSavings)
 #  vtable(LifeCycleSavings)
 #  vtable(LifeCycleSavings,out='browser')
@@ -47,7 +47,7 @@ vt(efc)
 #  #I can easily \input this into my LaTeX doc:
 #  vt(LifeCycleSavings,out='latex',file='mytable1.tex')
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  data(LifeCycleSavings)
 #  vt(LifeCycleSavings,file='lifecycle_variabledocumentation')
 
@@ -104,7 +104,7 @@ library(sjlabelled)
 data(efc)
 vtable(efc)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  data(USJudgeRatings)
 #  USJudgeRatings$Judge <- row.names(USJudgeRatings)
 #  USJudgeRatings$SecondCharacter <- 'Less Interesting'
@@ -115,7 +115,7 @@ vtable(efc)
 #  #Or just for a subset
 #  vtable(USJudgeRatings,char.values=c('Judge','SecondCharacter'))
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(vtable)
 #  
 #  data(LifeCycleSavings)
@@ -128,19 +128,19 @@ vtable(efc)
 #      desc='Data on the savings ratio 1960–1970',
 #      note='Data from Belsley, Kuh, and Welsch (1980)')
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(sjlabelled)
 #  data(efc)
 #  #The variable names in this data set are pretty short, and the value labels are
 #  #a little cramped, so let's move that over.
 #  vtable(efc,col.width=c(10,10,40,40))
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  library(sjlabelled)
 #  data(efc)
 #  vtable(efc,col.align = 'right')
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  library(sjlabelled)
 #  data(efc)
 #  vtable(efc,align = 'p{.3\\textwidth}cc', fit.page = '\\textwidth', out = 'latex')
