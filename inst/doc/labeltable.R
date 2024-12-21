@@ -1,14 +1,14 @@
 ## ----eval=FALSE---------------------------------------------------------------
-#  labeltable(var,
-#      ...,
-#      out=NA,
-#      count=FALSE,
-#      percent=FALSE,
-#      file=NA,
-#      desc=NA,
-#      note=NA,
-#      note.align=NA,
-#      anchor=NA)
+# labeltable(var,
+#     ...,
+#     out=NA,
+#     count=FALSE,
+#     percent=FALSE,
+#     file=NA,
+#     desc=NA,
+#     note=NA,
+#     note.align=NA,
+#     anchor=NA)
 
 ## -----------------------------------------------------------------------------
 #Include a single labelled variable to show how the values of that variable correspond to its value labels.
@@ -28,8 +28,8 @@ data(LifeCycleSavings)
 labeltable(efc$e15relat, count = TRUE, percent = TRUE)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(vtable)
-#  
-#  data(LifeCycleSavings)
-#  labeltable(efc$e15relat,file='lifecycle_variabledocumentation')
+# library(vtable)
+# 
+# data(LifeCycleSavings)
+# labeltable(efc$e15relat,file='lifecycle_variabledocumentation')
 

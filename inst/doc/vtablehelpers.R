@@ -24,15 +24,15 @@ sd(x)
 weighted.sd(x, w)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  independence.test(x,y,w=NA,
-#                    factor.test = NA,
-#                    numeric.test = NA,
-#                    star.cutoffs = c(.01,.05,.1),
-#                    star.markers = c('***','**','*'),
-#                    digits = 3,
-#                    fixed.digits = FALSE,
-#                    format = '{name}={stat}{stars}',
-#                    opts = list())
+# independence.test(x,y,w=NA,
+#                   factor.test = NA,
+#                   numeric.test = NA,
+#                   star.cutoffs = c(.01,.05,.1),
+#                   star.markers = c('***','**','*'),
+#                   digits = 3,
+#                   fixed.digits = FALSE,
+#                   format = '{name}={stat}{stars}',
+#                   opts = list())
 
 ## -----------------------------------------------------------------------------
 data(iris)

@@ -3,55 +3,55 @@ library(vtable)
 st(iris)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  sumtable(data,
-#           vars=NA,
-#           out=NA,
-#           file=NA,
-#           summ=NA,
-#           summ.names=NA,
-#           add.median=FALSE,
-#           group=NA,
-#           group.long=FALSE,
-#           group.test=FALSE,
-#           group.weights =NA,
-#           col.breaks=NA,
-#           digits=2,
-#           fixed.digits=FALSE,
-#           numformat = formatfunc(digits = digits, big.mark = ''),
-#           skip.format = c('notNA(x)','propNA(x)','countNA(x)'),
-#           factor.percent=TRUE,
-#           factor.counts=TRUE,
-#           factor.numeric=FALSE,
-#           logical.numeric=FALSE,
-#           logical.labels=c('No','Yes'),
-#           labels=NA,
-#           title='Summary Statistics',
-#           note = NA,
-#           anchor=NA,
-#           col.width=NA,
-#           col.align=NA,
-#           align=NA,
-#           note.align='l',
-#           fit.page=NA,
-#           simple.kable=FALSE,
-#           obs.function=NA)
-#           opts=list())
+# sumtable(data,
+#          vars=NA,
+#          out=NA,
+#          file=NA,
+#          summ=NA,
+#          summ.names=NA,
+#          add.median=FALSE,
+#          group=NA,
+#          group.long=FALSE,
+#          group.test=FALSE,
+#          group.weights =NA,
+#          col.breaks=NA,
+#          digits=2,
+#          fixed.digits=FALSE,
+#          numformat = formatfunc(digits = digits, big.mark = ''),
+#          skip.format = c('notNA(x)','propNA(x)','countNA(x)'),
+#          factor.percent=TRUE,
+#          factor.counts=TRUE,
+#          factor.numeric=FALSE,
+#          logical.numeric=FALSE,
+#          logical.labels=c('No','Yes'),
+#          labels=NA,
+#          title='Summary Statistics',
+#          note = NA,
+#          anchor=NA,
+#          col.width=NA,
+#          col.align=NA,
+#          align=NA,
+#          note.align='l',
+#          fit.page=NA,
+#          simple.kable=FALSE,
+#          obs.function=NA)
+#          opts=list())
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  data(LifeCycleSavings)
-#  st(LifeCycleSavings, vars = c('pop15','pop75'))
+# data(LifeCycleSavings)
+# st(LifeCycleSavings, vars = c('pop15','pop75'))
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  data(LifeCycleSavings)
-#  sumtable(LifeCycleSavings)
-#  vartable <- vtable(LifeCycleSavings,out='return')
-#  
-#  #I can easily \input this into my LaTeX doc:
-#  vt(LifeCycleSavings,out='latex',file='mytable1.tex')
+# data(LifeCycleSavings)
+# sumtable(LifeCycleSavings)
+# vartable <- vtable(LifeCycleSavings,out='return')
+# 
+# #I can easily \input this into my LaTeX doc:
+# vt(LifeCycleSavings,out='latex',file='mytable1.tex')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  data(LifeCycleSavings)
-#  st(LifeCycleSavings,file='lifecycle_summary')
+# data(LifeCycleSavings)
+# st(LifeCycleSavings,file='lifecycle_summary')
 
 ## -----------------------------------------------------------------------------
 sumtable(iris,
@@ -130,14 +130,14 @@ labs <- data.frame(sr = 'numeric aggregate personal savings',
 sumtable(LifeCycleSavings,labels=labs)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  #The variable names in this data set are pretty short, and the value labels are
-#  #a little cramped, so let's move that over.
-#  st(LifeCycleSavings,
-#     col.width=c(9,rep(13,7)))
+# #The variable names in this data set are pretty short, and the value labels are
+# #a little cramped, so let's move that over.
+# st(LifeCycleSavings,
+#    col.width=c(9,rep(13,7)))
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  st(LifeCycleSavings,col.align = 'right')
+# st(LifeCycleSavings,col.align = 'right')
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  sumtable(iris,align = 'p{.3\\textwidth}ccccccc', fit.page = '\\textwidth', out = 'latex')
+# sumtable(iris,align = 'p{.3\\textwidth}ccccccc', fit.page = '\\textwidth', out = 'latex')
 

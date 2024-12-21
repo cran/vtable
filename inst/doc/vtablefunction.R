@@ -1,26 +1,26 @@
 ## ----eval=FALSE---------------------------------------------------------------
-#  vtable(data,
-#         out=NA,
-#         file=NA,
-#         labels=NA,
-#         class=TRUE,
-#         values=TRUE,
-#         missing=FALSE,
-#         index=FALSE,
-#         factor.limit=5,
-#         char.values=FALSE,
-#         data.title=NA,
-#         desc=NA,
-#         note=NA,
-#         anchor=NA,
-#         col.width=NA,
-#         col.align=NA,
-#         align=NA,
-#         note.align='l',
-#         fit.page=NA,
-#         summ=NA,
-#         lush=FALSE,
-#         opts=list())
+# vtable(data,
+#        out=NA,
+#        file=NA,
+#        labels=NA,
+#        class=TRUE,
+#        values=TRUE,
+#        missing=FALSE,
+#        index=FALSE,
+#        factor.limit=5,
+#        char.values=FALSE,
+#        data.title=NA,
+#        desc=NA,
+#        note=NA,
+#        anchor=NA,
+#        col.width=NA,
+#        col.align=NA,
+#        align=NA,
+#        note.align='l',
+#        fit.page=NA,
+#        summ=NA,
+#        lush=FALSE,
+#        opts=list())
 
 ## -----------------------------------------------------------------------------
 library(vtable)
@@ -37,19 +37,19 @@ data(efc)
 vt(efc)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  data(LifeCycleSavings)
-#  vtable(LifeCycleSavings)
-#  vtable(LifeCycleSavings,out='browser')
-#  vtable(LifeCycleSavings,out='viewer')
-#  htmlcode <- vtable(LifeCycleSavings,out='htmlreturn')
-#  vartable <- vtable(LifeCycleSavings,out='return')
-#  
-#  #I can easily \input this into my LaTeX doc:
-#  vt(LifeCycleSavings,out='latex',file='mytable1.tex')
+# data(LifeCycleSavings)
+# vtable(LifeCycleSavings)
+# vtable(LifeCycleSavings,out='browser')
+# vtable(LifeCycleSavings,out='viewer')
+# htmlcode <- vtable(LifeCycleSavings,out='htmlreturn')
+# vartable <- vtable(LifeCycleSavings,out='return')
+# 
+# #I can easily \input this into my LaTeX doc:
+# vt(LifeCycleSavings,out='latex',file='mytable1.tex')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  data(LifeCycleSavings)
-#  vt(LifeCycleSavings,file='lifecycle_variabledocumentation')
+# data(LifeCycleSavings)
+# vt(LifeCycleSavings,file='lifecycle_variabledocumentation')
 
 ## -----------------------------------------------------------------------------
 #Note that LifeCycleSavings has five variables
@@ -105,45 +105,45 @@ data(efc)
 vtable(efc)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  data(USJudgeRatings)
-#  USJudgeRatings$Judge <- row.names(USJudgeRatings)
-#  USJudgeRatings$SecondCharacter <- 'Less Interesting'
-#  USJudgeRatings$ThirdCharacter <- 'Less Interesting Still!'
-#  
-#  #Show values for all character variables
-#  vtable(USJudgeRatings,char.values=TRUE)
-#  #Or just for a subset
-#  vtable(USJudgeRatings,char.values=c('Judge','SecondCharacter'))
+# data(USJudgeRatings)
+# USJudgeRatings$Judge <- row.names(USJudgeRatings)
+# USJudgeRatings$SecondCharacter <- 'Less Interesting'
+# USJudgeRatings$ThirdCharacter <- 'Less Interesting Still!'
+# 
+# #Show values for all character variables
+# vtable(USJudgeRatings,char.values=TRUE)
+# #Or just for a subset
+# vtable(USJudgeRatings,char.values=c('Judge','SecondCharacter'))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(vtable)
-#  
-#  data(LifeCycleSavings)
-#  vtable(LifeCycleSavings)
-#  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='omit')
-#  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970. omit')
-#  vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
-#      desc='Data on the savings ratio 1960–1970',
-#      note='Data from Belsley, Kuh, and Welsch (1980)')
+# library(vtable)
+# 
+# data(LifeCycleSavings)
+# vtable(LifeCycleSavings)
+# vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
+#     desc='omit')
+# vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
+#     desc='Data on the savings ratio 1960–1970. omit')
+# vtable(LifeCycleSavings,data.title='Intercountry Life-Cycle Savings Data',
+#     desc='Data on the savings ratio 1960–1970',
+#     note='Data from Belsley, Kuh, and Welsch (1980)')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library(sjlabelled)
-#  data(efc)
-#  #The variable names in this data set are pretty short, and the value labels are
-#  #a little cramped, so let's move that over.
-#  vtable(efc,col.width=c(10,10,40,40))
+# library(sjlabelled)
+# data(efc)
+# #The variable names in this data set are pretty short, and the value labels are
+# #a little cramped, so let's move that over.
+# vtable(efc,col.width=c(10,10,40,40))
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  library(sjlabelled)
-#  data(efc)
-#  vtable(efc,col.align = 'right')
+# library(sjlabelled)
+# data(efc)
+# vtable(efc,col.align = 'right')
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  library(sjlabelled)
-#  data(efc)
-#  vtable(efc,align = 'p{.3\\textwidth}cc', fit.page = '\\textwidth', out = 'latex')
+# library(sjlabelled)
+# data(efc)
+# vtable(efc,align = 'p{.3\\textwidth}cc', fit.page = '\\textwidth', out = 'latex')
 
 ## -----------------------------------------------------------------------------
 library(sjlabelled)
